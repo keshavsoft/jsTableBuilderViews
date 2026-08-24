@@ -22,6 +22,11 @@
                             "className": "w-48 border border-gray-300 rounded px-2 py-1"
                         }
                     }
+                },
+                "verticalForm": {
+                    "elements": [
+                        "input"
+                    ]
                 }
             }
         },
@@ -45,6 +50,12 @@
                             "className": "w-48 border border-gray-300 rounded px-2 py-1"
                         }
                     }
+                },
+                "verticalForm": {
+                    "elements": [
+                        "label",
+                        "button"
+                    ]
                 }
             }
         },
@@ -336,6 +347,51 @@
                 "placeholder": "Search..."
             },
             "tableName": "purchases"
+        },
+        {
+            "htmlId": "table-root",
+            "theme": "style4",
+            "verticalForm": {
+                "show": true,
+                "label": "Default Table",
+                "placeholder": "Search..."
+            },
+            "endPoints1": {
+                "create": "",
+                "update": "",
+                "delete": "",
+                "read": "",
+                "read1": "",
+                "groupBy": "",
+                "read2": "",
+                "find": "",
+                "filter": "",
+                "dataLists": {},
+                "dataListEndpoints": {}
+            },
+            "tableName": "purchases",
+            "rendererType": "table",
+            "tableOptions": {
+                "commonOptions": {
+                    "tableWidth": "100%",
+                    "tableBorder": "1px solid #e5e7eb",
+                    "showSerialNo": true
+                },
+                "headOptions": {
+                    "headerHeight": "48px"
+                },
+                "bodyOptions": {
+                    "rowHeight": "48px"
+                },
+                "footOptions": {
+                    "showFooter": true,
+                    "rowHeight": "48px",
+                    "showAggregateRows": false,
+                    "showTotals": false,
+                    "showBalance": true,
+                    "showInputsRow": true
+                }
+            }
         }
     ],
     "views1": [
