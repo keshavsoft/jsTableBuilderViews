@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Schema - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Configuration Schema</h1>
+        
+        <p class="mb-6">The entire `TableBuilder` UI is driven by a single JSON configuration object passed to the constructor. This document explains the primary keys.</p>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Root Object</h2>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+{
+  "htmlId": "app-root",
+  "data": [...],
+  "columns": [...],
+  "views": [...]
+}
+            </pre>
+            <ul class="list-disc pl-6 mt-4 space-y-2">
+                <li><strong>htmlId</strong> (String): The ID of the DOM element where the app will be rendered.</li>
+                <li><strong>data</strong> (Array): An array of JSON objects containing the raw data. The engine flattens nested keys automatically.</li>
+                <li><strong>columns</strong> (Array): Defines the schema for mapping data attributes to display headers.</li>
+                <li><strong>views</strong> (Array): Defines which UI renderers to use (e.g., vertical filters and data tables).</li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Columns Array</h2>
+            <p class="mb-4">Each object in the `columns` array maps a flattened data key to a human-readable column name.</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+{
+  "DataAttribute": "details.stockitemname",
+  "DisplayName": "Item Name",
+  "KSType": "String" // Used for internal formatting logic
+}
+            </pre>
+            <p class="mt-4 text-sm text-gray-600"><em>Note: Ensure `DataAttribute` matches exactly how the keys appear in your data after flattening.</em></p>
+        </div>
+    </div>
+</body>
+</html>

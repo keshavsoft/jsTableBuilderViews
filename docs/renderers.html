@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderers Guide - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Renderers Guide</h1>
+        
+        <p class="mb-6">TableBuilder uses "Renderers" to draw UI components on the screen. Renderers are stateless components that take normalized data from the core and convert it into HTML.</p>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-2">1. The Vertical Renderer (<code>vertical</code>)</h2>
+            <p class="mb-4">Used primarily for creating forms, filters, and inputs. It reads the unique values from the data store to generate dropdowns and inputs.</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+{
+  "rendererType": "vertical",
+  "theme": "light"
+}
+            </pre>
+            <p class="mt-4"><strong>Key Feature:</strong> If a button with the text "Filter" is clicked within a vertical renderer, it automatically intercepts the inputs and triggers the `TableBuilder.filterData()` pipeline.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-2">2. The Table Renderer (<code>table</code>)</h2>
+            <p class="mb-4">Generates a standard HTML data grid. It maps the flattened data keys (from the `columns` array) into rows and columns.</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+{
+  "rendererType": "table",
+  "theme": "dark"
+}
+            </pre>
+            <p class="mt-4"><strong>Integration:</strong> Complex data types or editable cells inside the table are handled by injecting Web Components (`KsTableCellContent`).</p>
+        </div>
+    </div>
+</body>
+</html>
