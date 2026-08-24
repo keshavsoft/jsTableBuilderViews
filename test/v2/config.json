@@ -25,7 +25,9 @@
                 },
                 "verticalForm": {
                     "elements": [
-                        "input"
+                        "label",
+                        "input",
+                        "button"
                     ]
                 }
             }

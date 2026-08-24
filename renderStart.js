@@ -3,7 +3,7 @@ import { setupColumnsAndData } from "./renderStart/dataFuncs/setupDataStore.js";
 // import { VerticalRenderer } from "./renderStart/renderers/vertical/VerticalRenderer.js";
 import { tableRenderer } from "./renderStart/renderers/tableRenderer/v2/index.js";
 
-import { verticalRenderer } from "./renderStart/renderers/verticalRenderer/v7/index.js";
+import { verticalRenderer } from "./renderStart/renderers/verticalRenderer/v8/index.js";
 
 import "./webComponents/v4/KsTableCellContent.js";
 
@@ -58,7 +58,10 @@ class TableBuilder {
             const renderer = new RendererClass({
                 htmlId,
                 inDataStore: this.dataStore,
-                inTheme: theme
+                inTheme: theme,
+                onButtonClick: (data) => {
+                    console.log("TableBuilder received from vertical button click:", data);
+                }
             });
             // The specific renderer does ALL the heavy lifting
             await renderer.build();
