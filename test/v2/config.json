@@ -55,7 +55,11 @@
                     "elements": [
                         "label",
                         "button"
-                    ]
+                    ],
+                    "button": {
+                        "text": "Save Date",
+                        "className": "bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg shadow-sm cursor-pointer"
+                    }
                 }
             }
         },
@@ -78,6 +82,15 @@
                             "controlType": "datalist",
                             "className": "w-48 border border-gray-300 rounded px-2 py-1"
                         }
+                    }
+                },
+                "verticalForm": {
+                    "elements": [
+                        "label",
+                        "input"
+                    ],
+                    "label": {
+                        "text": "Voucher #"
                     }
                 }
             }
