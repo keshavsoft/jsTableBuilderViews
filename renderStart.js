@@ -1,7 +1,7 @@
 import { setupColumnsAndData } from "./renderStart/dataFuncs/setupDataStore.js";
 
 // import { VerticalRenderer } from "./renderStart/renderers/vertical/VerticalRenderer.js";
-import { tableRenderer } from "./renderStart/renderers/tableRenderer/v1/index.js";
+import { tableRenderer } from "./renderStart/renderers/tableRenderer/v2/index.js";
 
 import { verticalRenderer } from "./renderStart/renderers/verticalRenderer/v5/index.js";
 
@@ -71,6 +71,10 @@ class TableBuilder {
 };
 
 window.ks = window.ks || {};
+
+// Merge any properties previously attached (like renderers) onto TableBuilder
+Object.assign(TableBuilder, window.ks.TableBuilder || {});
+
 window.ks.TableBuilder = TableBuilder;
 window.ks.TableBuilder.version = "v14.0";
 
