@@ -1,4 +1,4 @@
-import { presentColumnData } from "../forFooter/v6/inputsRow/index.js";
+import { presentColumnData } from "../../../forFooter/v6/inputsRow/index.js";
 
 const prepareListData = ({ inData = [], inCol }) => {
     const footOptions = inCol?.options?.table?.tfoot?.inputsRow;

@@ -39,7 +39,14 @@ class verticalRenderer {
     build() {
         const verticalFormNode = this.buildVerticalFormElement();
         return this.appendToDom(verticalFormNode);
-    }
-}
+    };
+};
+
+window.ks = window.ks || {};
+
+window.ks.TableBuilder = window.ks.TableBuilder || {};
+window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+window.ks.TableBuilder.renderers.verticalRenderer = verticalRenderer;
+window.ks.TableBuilder.renderers.verticalRenderer.version = "v5.0";
 
 export { verticalRenderer };

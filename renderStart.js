@@ -3,7 +3,7 @@ import { setupColumnsAndData } from "./renderStart/dataFuncs/setupDataStore.js";
 // import { VerticalRenderer } from "./renderStart/renderers/vertical/VerticalRenderer.js";
 import { tableRenderer } from "./renderStart/renderers/tableRenderer/v1/index.js";
 
-import { verticalRenderer } from "./renderStart/renderers/verticalRenderer/v4/index.js";
+import { verticalRenderer } from "./renderStart/renderers/verticalRenderer/v5/index.js";
 
 import "./webComponents/v4/KsTableCellContent.js";
 
