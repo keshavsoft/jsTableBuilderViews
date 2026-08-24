@@ -2,7 +2,7 @@ const buildCellContent = ({ inFootOptions = {}, inSummaryValue }) => {
     const localFootOptions = inFootOptions;
     const localSummaryValue = inSummaryValue;
 
-    const cellContent = document.createElement("ks-table-cell-content-common");
+    const cellContent = document.createElement("ks-table-cell-content-common-v5");
 
     if (localFootOptions.inRowHeight) {
         cellContent.style.minHeight = localFootOptions.inRowHeight;
