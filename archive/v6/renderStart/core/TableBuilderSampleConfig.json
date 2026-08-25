@@ -1,0 +1,31 @@
+{
+    "htmlId": "table-root",
+    "data": [],
+    "tableName": "sample_table",
+    "columns": [
+        {
+            "header": "Sample Column",
+            "dataKey": "sampleKey",
+            "options": {
+                "width": "150px",
+                "sortable": true,
+                "table": {
+                    "isVisible": true,
+                    "tfoot": {
+                        "summary": {
+                            "summary": "sum",
+                            "summaryLabel1": "Total:"
+                        },
+                        "inputsRow": {
+                            "showInput": true,
+                            "controlType": "text"
+                        }
+                    }
+                },
+                "verticalForm": {
+                    "elements": ["label", "input"]
+                }
+            }
+        }
+    ]
+}
