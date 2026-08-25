@@ -11,63 +11,147 @@
         <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
         <h1 class="text-4xl font-bold text-gray-900 mb-6">Table Features Guide</h1>
         
-        <p class="mb-8 text-gray-700">A consolidated guide explaining how to enable and configure Serial Numbers, Global Search, and Column Filters in TableBuilder.</p>
+        <p class="mb-8 text-gray-700">This guide provides complete, step-by-step instructions and code examples for implementing <strong class="text-gray-900">Serial Numbers</strong>, <strong class="text-gray-900">Global Search</strong>, and <strong class="text-gray-900">Column-wise Filters</strong> in your TableBuilder applications.</p>
 
-        <!-- Feature 1 -->
+        <!-- Quick Start Code Example -->
         <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">1. Serial Number Column Guide</h2>
-            <p class="mb-4 text-gray-700">TableBuilder supports an automatic Serial Number (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-blue-800">#</code>) column as the first column in your data table.</p>
+            <h2 class="text-2xl font-bold text-blue-600 mb-3">🚀 Complete Working Example</h2>
+            <p class="mb-4 text-gray-700 text-sm">Copy and paste this minimal snippet into an HTML file to initialize TableBuilder with all features enabled:</p>
+
+            <pre class="bg-gray-100 p-4 rounded text-xs sm:text-sm text-gray-800 overflow-x-auto font-mono">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body class="p-8"&gt;
+    &lt;!-- Target DOM Container --&gt;
+    &lt;div id="table-root"&gt;&lt;/div&gt;
+
+    &lt;script type="module"&gt;
+        import { TableBuilder } from './dist/v6/renderStart.js';
+
+        const config = {
+            htmlId: "table-root",
+            showSerialNo: true, // Enables # / $serial column
+            data: [
+                { id: 101, name: "Laptop", category: "Electronics", price: 1200 },
+                { id: 102, name: "Keyboard", category: "Electronics", price: 75 },
+                { id: 103, name: "Novel", category: "Books", price: 20 }
+            ],
+            columns: [
+                { header: "ID", dataKey: "id" },
+                { header: "Item Name", dataKey: "name" },
+                { header: "Category", dataKey: "category" },
+                { header: "Price ($)", dataKey: "price" }
+            ],
+            views: [
+                { rendererType: "table" }
+            ]
+        };
+
+        // Initialize TableBuilder Engine
+        const instance = new TableBuilder(config);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </pre>
+        </div>
+
+        <!-- Feature 1: Serial Number Column -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-3">1. Serial Number Column (`#` / `$serial`)</h2>
+            <p class="mb-4 text-gray-700">Displays an automatic, sequential index column as the very first column in your data grid.</p>
             
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Configuration:</h3>
-            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
-{
-  "htmlId": "table-root",
-  "showSerialNo": true,
-  "data": [...],
-  "columns": [...]
-}
-            </pre>
+            <h3 class="text-base font-semibold text-gray-800 mb-2">How to Enable:</h3>
+            <p class="text-sm text-gray-600 mb-3">Add <code class="bg-gray-100 px-2 py-0.5 rounded text-blue-700 font-mono">showSerialNo: true</code> to your root config JSON or constructor options.</p>
 
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
-            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
-                <li><strong><code class="font-mono">prepareColumns.js</code>:</strong> Prepends <code class="font-mono">{ header: "#", dataKey: "$serial" }</code> at Index 0.</li>
-                <li><strong><code class="font-mono">prepareData.js</code>:</strong> Maps each row item to include <code class="font-mono">$serial = index + 1</code>.</li>
-                <li><strong>Dynamic Re-indexing:</strong> Automatically re-sequences <code class="font-mono">$serial = 1, 2, 3...</code> whenever data is searched or filtered.</li>
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Technical Execution Details:</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm mb-4">
+                <li><strong class="font-mono text-gray-900">prepareColumns.js:</strong> Detects flag and automatically prepends column definition <code class="bg-gray-100 px-1 font-mono text-xs">{ header: "#", dataKey: "$serial" }</code> at Index 0.</li>
+                <li><strong class="font-mono text-gray-900">prepareData.js:</strong> Maps each row item to include <code class="bg-gray-100 px-1 font-mono text-xs">$serial = index + 1</code>.</li>
+                <li><strong class="font-mono text-gray-900">Dynamic Re-indexing:</strong> When rows are filtered or searched, TableBuilder automatically re-sequences <code class="bg-gray-100 px-1 font-mono text-xs">$serial = 1, 2, 3...</code> for all displayed rows.</li>
             </ul>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- Feature 2: Global Search Toolbar -->
         <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">2. Global Search Guide</h2>
-            <p class="mb-4 text-gray-700">Global Search queries across all visible columns simultaneously using substring matching.</p>
+            <h2 class="text-2xl font-bold text-blue-600 mb-3">2. Global Search Toolbar</h2>
+            <p class="mb-4 text-gray-700">Performs case-insensitive substring searching across all visible data columns simultaneously.</p>
 
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Usage & Method:</h3>
-            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
-tableBuilder.setGlobalSearch("Electronics");
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Toolbar Interface:</h3>
+            <p class="text-sm text-gray-600 mb-3">TableBuilder automatically renders a top toolbar containing an input box, Search button, Clear button, and a badge displaying matching row counts.</p>
+
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Programmatic API Method:</h3>
+            <pre class="bg-gray-100 p-3 rounded text-sm text-gray-800 font-mono mb-4">
+// Filters table to rows containing "Electronics" in any column
+instance.setGlobalSearch("Electronics");
             </pre>
 
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Technical Execution Details:</h3>
             <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
-                <li><strong><code class="font-mono">searchUtils.js</code>:</strong> Implements <code class="font-mono">processSearch()</code> matching queries across all column keys.</li>
-                <li><strong><code class="font-mono">buildTable/index.js</code>:</strong> Renders top search toolbar with input box, Search button, and row badge.</li>
+                <li><strong class="font-mono text-gray-900">searchUtils.js:</strong> Implements <code class="bg-gray-100 px-1 font-mono text-xs">processSearch()</code> which tests row attributes against <code class="bg-gray-100 px-1 font-mono text-xs">dataStore.columns</code>.</li>
+                <li><strong class="font-mono text-gray-900">State Management:</strong> Integrates with <code class="bg-gray-100 px-1 font-mono text-xs">applyAllFilters()</code> to maintain search state across table refreshes.</li>
             </ul>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">3. Column Filters Guide</h2>
-            <p class="mb-4 text-gray-700">Individual column filters render input boxes directly beneath each column header inside <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">&lt;thead&gt;</code>.</p>
+        <!-- Feature 3: Individual Column-wise Filters -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-3">3. Individual Column-wise Search Filters</h2>
+            <p class="mb-4 text-gray-700">Renders dedicated search input fields under each column header inside <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">&lt;thead&gt;</code> for column-specific filtering.</p>
 
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">Usage & Method:</h3>
-            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
-tableBuilder.setColumnFilter("category", "Electronics");
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Programmatic API Method:</h3>
+            <pre class="bg-gray-100 p-3 rounded text-sm text-gray-800 font-mono mb-4">
+// Filters specific column by dataKey
+instance.setColumnFilter("category", "Books");
+
+// Clear all active column and global search filters
+instance.clearAllFilters();
             </pre>
 
-            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
+            <h3 class="text-base font-semibold text-gray-800 mb-2">Technical Execution Details:</h3>
             <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
-                <li><strong><code class="font-mono">TableHeader.js</code>:</strong> <code class="font-mono">buildColumnFilterRow()</code> appends a second header row with input elements.</li>
-                <li><strong>Multi-Column AND Logic:</strong> Filters evaluate concurrently so rows match all active column criteria.</li>
+                <li><strong class="font-mono text-gray-900">TableHeader.js:</strong> <code class="bg-gray-100 px-1 font-mono text-xs">buildColumnFilterRow()</code> appends a second header row containing column input fields.</li>
+                <li><strong class="font-mono text-gray-900">Multi-Column AND Logic:</strong> Column filters evaluate concurrently. Items must satisfy all active column criteria to be displayed.</li>
             </ul>
+        </div>
+
+        <!-- API Reference Table -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">📖 API Reference Summary</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-700 border-b border-gray-200 font-semibold">
+                            <th class="p-3">Method / Option</th>
+                            <th class="p-3">Type / Params</th>
+                            <th class="p-3">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 text-gray-700 text-xs sm:text-sm">
+                        <tr>
+                            <td class="p-3 font-mono text-blue-700">showSerialNo</td>
+                            <td class="p-3 font-mono">Boolean</td>
+                            <td class="p-3">Enables automatic `#` ($serial) column at Index 0.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-mono text-blue-700">setGlobalSearch(query)</td>
+                            <td class="p-3 font-mono">String</td>
+                            <td class="p-3">Filters table data across all visible columns.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-mono text-blue-700">setColumnFilter(key, val)</td>
+                            <td class="p-3 font-mono">String, String</td>
+                            <td class="p-3">Applies substring filter to a specific column key.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-mono text-blue-700">clearAllFilters()</td>
+                            <td class="p-3 font-mono">None</td>
+                            <td class="p-3">Clears global search & column input filters and resets data.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
