@@ -31,9 +31,9 @@ export default defineConfig({
   build: {
     outDir: `dist/v${nextV}`,
     lib: {
-      entry: 'tableBuilder.js',
-      name: 'tableBuilder',
-      fileName: 'tableBuilder'
+      entry: 'renderStart.js',
+      name: 'renderStart',
+      fileName: 'renderStart'
     }
   }
 });

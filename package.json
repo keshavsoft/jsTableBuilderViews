@@ -1,10 +1,10 @@
 {
-  "name": "js-table-builder-v14",
-  "version": "1.11.1",
+  "name": "tableBuilderViews",
+  "version": "1.0.0",
   "description": "",
-  "main": "TableBuilder.js",
+  "main": "renderStart.js",
   "bin": {
-    "js-table-builder": "bin/cli.js"
+    "tableBuilderViews": "bin/cli.js"
   },
   "directories": {
     "doc": "docs"
@@ -15,16 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keshavsoft/js-table-builder-v14.git"
+    "url": "git+https://github.com/keshavsoft/tableBuilderViews.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/keshavsoft/js-table-builder-v14/issues"
+    "url": "https://github.com/keshavsoft/tableBuilderViews/issues"
   },
-  "homepage": "https://github.com/keshavsoft/js-table-builder-v14#readme",
+  "homepage": "https://github.com/keshavsoft/tableBuilderViews#readme",
   "devDependencies": {
     "vite": "^8.2.1"
   }
