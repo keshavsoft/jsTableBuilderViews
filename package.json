@@ -1,10 +1,10 @@
 {
-  "name": "tableBuilderViews",
+  "name": "table-builder-views",
   "version": "1.0.1",
   "description": "",
   "main": "renderStart.js",
   "bin": {
-    "tableBuilderViews": "bin/cli.js"
+    "table-builder-views": "bin/cli.js"
   },
   "files": [
     "bin",
