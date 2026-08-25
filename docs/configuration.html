@@ -36,12 +36,15 @@
             <p class="mb-4">Each object in the `columns` array maps a flattened data key to a human-readable column name.</p>
             <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
 {
-  "DataAttribute": "details.stockitemname",
-  "DisplayName": "Item Name",
-  "KSType": "String" // Used for internal formatting logic
+  "dataKey": "details.stockitemname",
+  "header": "Item Name",
+  "options": {
+      "sortable": true,
+      "width": "150px"
+  }
 }
             </pre>
-            <p class="mt-4 text-sm text-gray-600"><em>Note: Ensure `DataAttribute` matches exactly how the keys appear in your data after flattening.</em></p>
+            <p class="mt-4 text-sm text-gray-600"><em>Note: Ensure `dataKey` matches exactly how the keys appear in your data after flattening.</em></p>
         </div>
     </div>
 </body>

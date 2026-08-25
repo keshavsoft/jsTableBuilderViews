@@ -10,17 +10,17 @@ To add a new column, you simply need to update your `config.json` (or the `colum
 const columns = [
     // Existing column
     {
-        DataAttribute: "customerName",
-        DisplayName: "Customer Name"
+        dataKey: "customerName",
+        header: "Customer Name"
     },
     // NEW Column
     {
-        DataAttribute: "orderTotal",
-        DisplayName: "Total Amount"
+        dataKey: "orderTotal",
+        header: "Total Amount"
     }
 ];
 ```
-> **Note**: The `DataAttribute` must exactly match the key in your JSON data. If the data is nested (e.g., `{ order: { total: 100 } }`), use dot notation: `"order.total"`.
+> **Note**: The `dataKey` must exactly match the key in your JSON data. If the data is nested (e.g., `{ order: { total: 100 } }`), use dot notation: `"order.total"`.
 
 ## 2. How to Enable Data Filtering
 
@@ -60,4 +60,4 @@ const views = [
 ## Links
 - [Back to README](./README.md)
 - [Developer Guide](./DEV.md)
-- [HTML Renderers Guide](docs/renderers.html)
+- [Live HTML Renderers Guide](https://keshavsoft.github.io/jsTableBuilderViews/renderers.html)

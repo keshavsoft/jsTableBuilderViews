@@ -1,5 +1,7 @@
 # KeshavSoft TableBuilder
 
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/jsTableBuilderViews/)
+
 TableBuilder is a lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.
 
 ## Features
@@ -8,6 +10,7 @@ TableBuilder is a lightweight, declarative Javascript UI library for generating 
 - **Dynamic Filtering**: Built-in state management for dynamically filtering tables without destroying the DOM of other components.
 - **Web Components Integration**: Easily embed custom form inputs inside table cells using Web Components (`ks-table-cell-content-common-v5`).
 - **Responsive Styling**: Tailwind CSS support built-in.
+- **Self-Documenting**: You can call `TableBuilder.sampleConfig()` to get a complete, valid sample configuration object.
 
 ## Quick Start
 
@@ -25,12 +28,12 @@ const config = {
     ],
     columns: [
         {
-            DataAttribute: "name",
-            DisplayName: "Item Name"
+            dataKey: "name",
+            header: "Item Name"
         },
         {
-            DataAttribute: "category",
-            DisplayName: "Category"
+            dataKey: "category",
+            header: "Category"
         }
     ],
     views: [
@@ -51,7 +54,7 @@ Dive deeper into the architecture, setup, and advanced configurations:
 - [How-To Tutorials (`HOWTO.md`)](./HOWTO.md)
 
 ### Detailed HTML Docs
-For exhaustive schema definitions and visual examples, view our HTML documentation:
-- [Main Docs Landing Page](docs/index.html)
-- [Configuration Schema](docs/configuration.html)
-- [Renderers Guide](docs/renderers.html)
+For exhaustive schema definitions and visual examples, view our live HTML documentation on GitHub Pages:
+- [Main Docs Landing Page](https://keshavsoft.github.io/jsTableBuilderViews/)
+- [Configuration Schema](https://keshavsoft.github.io/jsTableBuilderViews/configuration.html)
+- [Renderers Guide](https://keshavsoft.github.io/jsTableBuilderViews/renderers.html)

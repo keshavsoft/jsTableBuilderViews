@@ -38,4 +38,4 @@ The component is defined in `webComponents/v5/KsTableCellContent.js`. When the `
 ## Links
 - [Back to README](./README.md)
 - [How-To Tutorials](./HOWTO.md)
-- [HTML Configuration Docs](docs/configuration.html)
+- [Live HTML Configuration Docs](https://keshavsoft.github.io/jsTableBuilderViews/configuration.html)
