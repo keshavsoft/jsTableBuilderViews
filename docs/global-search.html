@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Search Guide - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Global Search Guide</h1>
+        
+        <p class="mb-6 text-gray-700">TableBuilder provides multi-column Global Search functionality that allows users to search for any string across all visible columns in the data grid simultaneously.</p>
+
+        <!-- Section 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">1. Global Search Overview</h2>
+            <p class="mb-4 text-gray-700">Global search checks all visible column data attributes for each row and retains rows where at least one cell contains the search query substring (case-insensitive).</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto">
+// Example: Searching for "Electronics" queries all columns
+tableBuilder.setGlobalSearch("Electronics");
+            </pre>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">2. How It Works Under The Hood</h2>
+            <p class="mb-4 text-gray-700">Global search relies on a multi-column filtering algorithm inside <code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">renderStart/dataFuncs/searchUtils.js</code>:</p>
+            <ul class="list-disc pl-6 space-y-3 text-gray-700">
+                <li>
+                    <strong>Search Algorithm (<code class="text-sm font-mono">searchUtils.js</code>):</strong> 
+                    Iterates over <code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">dataStore.columns</code> and tests each row value using substring matching:
+                    <br>
+                    <code class="bg-gray-100 p-2 mt-1 block rounded text-xs font-mono text-gray-800">
+                    row[col.dataKey].toString().toLowerCase().includes(query)
+                    </code>
+                </li>
+                <li>
+                    <strong>Toolbar Component (<code class="text-sm font-mono">buildTable/index.js</code>):</strong> 
+                    Renders the search toolbar containing the input field, search button, clear button, and total row badge.
+                </li>
+                <li>
+                    <strong>State Linkage (<code class="text-sm font-mono">TableBuilder.js</code>):</strong> 
+                    Triggers table re-rendering (<code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">refreshTables()</code>) whenever the search query is updated.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">3. Results & Serial Re-sequencing</h2>
+            <p class="text-gray-700">When global search filters data, any active Serial Number column (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">#</code>) is automatically re-sequenced (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">1, 2, 3...</code>) for the displayed result set.</p>
+        </div>
+
+    </div>
+</body>
+</html>
