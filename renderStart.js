@@ -1,5 +1,5 @@
 import { TableBuilder } from "./renderStart/core/TableBuilder.js";
-import "./webComponents/v6/KsTableCellContent.js";
+import "./webComponents/v7/KsTableCellContent.js";
 
 window.ks = window.ks || {};
 

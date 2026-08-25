@@ -27,7 +27,7 @@ const createInputElement = (inOptions) => {
     } else {
         createdElement = document.createElement("input");
         applyType(createdElement, localOptions);
-    }
+    };
 
     applyStandardAttributes(createdElement, localOptions);
     applyConstraints(createdElement, localOptions);
