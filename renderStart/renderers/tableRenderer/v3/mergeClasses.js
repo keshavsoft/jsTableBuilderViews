@@ -1,4 +1,5 @@
-import { DEFAULT_CLASSES } from "./config/defaults.js";
+// import { DEFAULT_CLASSES } from "./config/defaults.js";
+import { DEFAULT_CLASSES } from "../../../style/v1/themeClasses.js";
 
 export function mergeClasses({ inClasses, inTheme = "standardGrid" }) {
     const localClasses = inClasses || {};

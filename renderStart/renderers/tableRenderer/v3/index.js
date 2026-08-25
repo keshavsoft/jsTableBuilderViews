@@ -1,12 +1,8 @@
 import { buildTable } from "./buildTable/index.js";
-// import { appendToDom } from "./buildTable/utils/dom/appendToDom.js";
-// import "./webComponents/v4/KsTableCellContent.js";
 import { mergeClasses } from "./mergeClasses.js";
 
 class tableRenderer {
     constructor({ htmlId, inDataStore, inTheme, inClasses }) {
-        // console.log("hhhhhhhh : ", htmlId, inDataStore, inTheme, inClasses);
-
         this.htmlId = htmlId;
         this.dataStore = inDataStore;
 
