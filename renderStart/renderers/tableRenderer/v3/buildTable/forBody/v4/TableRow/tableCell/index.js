@@ -32,7 +32,7 @@ function buildTableCell({
     }
 
     // Create the Web Component and pass the inputs to it
-    const contentComponent = document.createElement("ks-table-cell-content-common-v5");
+    const contentComponent = document.createElement("ks-table-cell-content-common");
     contentComponent.inputs = {
         cellValue: localCellValue,
         rowData: localRowData,

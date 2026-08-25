@@ -25,9 +25,11 @@ When data is passed into the `TableBuilder`, it often contains deeply nested JSO
 For example, `item.details.name` becomes accessible via the flattened string path `"details.name"`. This flattened data is what is passed to the renderers.
 
 ## Web Components (`KsTableCellContent`)
-To handle complex inputs (like dropdowns, date pickers, or text fields) inside of our table cells, we use standard HTML Custom Web Components.
+To handle complex inputs (like dropdowns, date pickers, or text fields) inside of our table cells, we rely on standard HTML Custom Web Components.
 
-The component is defined in `webComponents/v5/KsTableCellContent.js`. When the `tableRenderer` needs to draw an interactive cell, it simply creates a `<ks-table-cell-content-common-v5>` tag and attaches the data. The Web Component handles its own internal state and event listeners.
+These components are now developed and maintained in a separate repository: **[ks-web-components](https://github.com/keshavsoft/ks-web-components)**. 
+
+When the `tableRenderer` needs to draw an interactive cell, it simply creates a `<ks-table-cell-content-common>` tag (provided by the `ks-web-components` library) and attaches the data. The Web Component handles its own internal state and event listeners independently.
 
 ## The Filtering Flow
 1. A user clicks a "Filter" button inside a `verticalRenderer`.

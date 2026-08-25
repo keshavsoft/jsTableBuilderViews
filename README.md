@@ -8,9 +8,12 @@ TableBuilder is a lightweight, declarative Javascript UI library for generating 
 - **Declarative Configuration**: Define your UI using a simple JSON structure.
 - **Multiple Renderers**: Render data as interactive data grids (`table`) or input forms (`vertical`).
 - **Dynamic Filtering**: Built-in state management for dynamically filtering tables without destroying the DOM of other components.
-- **Web Components Integration**: Easily embed custom form inputs inside table cells using Web Components (`ks-table-cell-content-common-v5`).
+- **Web Components Integration**: Easily embed custom form inputs inside table cells using Web Components (`ks-table-cell-content-common`).
 - **Responsive Styling**: Tailwind CSS support built-in.
 - **Self-Documenting**: You can call `TableBuilder.sampleConfig()` to get a complete, valid sample configuration object.
+
+## Dependencies
+This repository relies on the [ks-web-components](https://github.com/keshavsoft/ks-web-components) repository for its custom HTML elements (such as `ks-table-cell-content-common`). Ensure that the `ks-web-components` bundle is loaded on your page before using TableBuilder.
 
 ## Quick Start
 
