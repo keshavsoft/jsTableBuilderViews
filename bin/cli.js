@@ -7,10 +7,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// The source buildTable directory (one level up from bin/)
-const sourceDir = path.join(__dirname, '..', 'buildTable');
-// The destination directory (where the user ran the command)
-const targetDir = path.join(process.cwd(), 'buildTable');
+// The directories and files to copy (relative to the package root, one level up from bin/)
+const packageRoot = path.join(__dirname, '..');
+const dirsToCopy = ['renderStart', 'webComponents'];
+const filesToCopy = ['renderStart.js'];
 
 // Utility to recursively copy a directory
 function copyDirectory(src, dest) {
@@ -32,27 +32,31 @@ function copyDirectory(src, dest) {
     }
 }
 
-console.log('📦 Installing jsTableBuilder source components...');
+console.log('📦 Installing tableBuilderViews source components...');
 
 try {
-    if (!fs.existsSync(sourceDir)) {
-        console.error(`❌ Source directory not found at: ${sourceDir}`);
-        process.exit(1);
+    for (const dir of dirsToCopy) {
+        const sourceDir = path.join(packageRoot, dir);
+        const targetDir = path.join(process.cwd(), dir);
+        
+        if (fs.existsSync(sourceDir)) {
+            if (fs.existsSync(targetDir)) {
+                console.warn(`⚠️  Target directory ./${dir} already exists. Files will be overwritten.`);
+            }
+            copyDirectory(sourceDir, targetDir);
+            console.log(`✅ Successfully copied ${dir} to ./${dir}`);
+        } else {
+            console.warn(`⚠️ Source directory not found: ${sourceDir}. Skipping...`);
+        }
     }
 
-    if (fs.existsSync(targetDir)) {
-        console.warn(`⚠️  Target directory ./buildTable already exists. Files will be overwritten.`);
-    }
-
-    copyDirectory(sourceDir, targetDir);
-    console.log(`✅ Successfully copied buildTable to ./buildTable`);
-
-    // Copy TableBuilder.js
-    const sourceTableBuilder = path.join(__dirname, '..', 'TableBuilder.js');
-    const destTableBuilder = path.join(process.cwd(), 'TableBuilder.js');
-    if (fs.existsSync(sourceTableBuilder)) {
-        fs.copyFileSync(sourceTableBuilder, destTableBuilder);
-        console.log(`✅ Successfully copied TableBuilder.js to ./TableBuilder.js`);
+    for (const file of filesToCopy) {
+        const sourceFile = path.join(packageRoot, file);
+        const targetFile = path.join(process.cwd(), file);
+        if (fs.existsSync(sourceFile)) {
+            fs.copyFileSync(sourceFile, targetFile);
+            console.log(`✅ Successfully copied ${file} to ./${file}`);
+        }
     }
 
     // Scaffold a sample index.html

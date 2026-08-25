@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jsTableBuilder Setup</title>
+    <title>tableBuilderViews Setup</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-8 flex flex-col min-h-screen">
@@ -12,21 +12,21 @@
     </div>
     
     <footer class="mt-auto py-6 flex justify-center space-x-6 text-sm text-gray-500">
-        <a href="https://keshavsoft.github.io/jsTableBuilder/" target="_blank" class="hover:text-blue-600 transition-colors">Website</a>
-        <a href="https://github.com/keshavsoft/jsTableBuilder" target="_blank" class="hover:text-gray-900 transition-colors">GitHub</a>
-        <a href="https://www.npmjs.com/package/js-table-builder" target="_blank" class="hover:text-red-500 transition-colors">NPM</a>
+        <a href="https://keshavsoft.github.io/jsTableBuilderViews/" target="_blank" class="hover:text-blue-600 transition-colors">Website</a>
+        <a href="https://github.com/keshavsoft/tableBuilderViews" target="_blank" class="hover:text-gray-900 transition-colors">GitHub</a>
+        <a href="https://www.npmjs.com/package/tableBuilderViews" target="_blank" class="hover:text-red-500 transition-colors">NPM</a>
     </footer>
 
     <script type="module">
-        import { TableBuilder } from "./TableBuilder.js";
+        import { TableBuilder } from "./renderStart.js";
 
         // Example data - Replace with your own logic!
         const data = [{
             name: "KeshavSoft",
             founder: "Keshav Nalam",
-            website: "keshavsoft.github.io/jsTableBuilder",
-            github: "github.com/keshavsoft/jsTableBuilder",
-            npm: "npmjs.com/package/js-table-builder"
+            website: "keshavsoft.github.io/jsTableBuilderViews",
+            github: "github.com/keshavsoft/tableBuilderViews",
+            npm: "npmjs.com/package/tableBuilderViews"
         }];
 
         const columns = [
@@ -44,12 +44,14 @@
             tableOptions: {
                 commonOptions: { showSerialNo: true }
             },
-            topHeader: {
-                label: "My Scaffolded Table",
-                placeholder: "Search..."
-            }
+            views: [
+                {
+                    rendererType: "table",
+                    theme: "style1"
+                }
+            ]
         });
-        tableBuilder.appendToDom();
+        tableBuilder.build();
     </script>
 </body>
 </html>
