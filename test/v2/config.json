@@ -94,6 +94,11 @@
                 "sortable": true,
                 "table": {
                     "isVisible": true,
+                    "tbody": {
+                        "theme1": "tableCellExtraCompact",
+                        "theme2": "tableCellStandard",
+                        "theme": "tableCellExtraLarge"
+                    },
                     "tfoot": {
                         "summary": {
                             "balanceString1": "Balance ${Amount}",

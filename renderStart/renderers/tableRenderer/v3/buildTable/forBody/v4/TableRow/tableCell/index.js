@@ -29,15 +29,16 @@ function buildTableCell({
 
     if (typeof localCellValue === "object" && localCellValue !== null) {
         if (localClasses.cellTruncate) cellElement.className += (cellElement.className ? " " : "") + localClasses.cellTruncate;
-    }
+    };
+    console.log("hhhhhhhhhhhh------ : ", localOptions?.table?.tbody?.theme);
 
     // Create the Web Component and pass the inputs to it
     const contentComponent = document.createElement("ks-table-cell-content-common");
     contentComponent.inputs = {
         cellValue: localCellValue,
         rowData: localRowData,
-        options: localOptions,
-        classes: localClasses
+        options: { theme: localOptions?.table?.tbody?.theme },
+        classes1: localClasses
     };
 
     cellElement.appendChild(contentComponent);
