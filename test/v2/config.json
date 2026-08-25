@@ -1,6 +1,27 @@
 {
     "htmlId": "table-root",
     "data": [],
+    "mainOptions": {
+        "commonOptions": {
+            "tableWidth": "100%",
+            "tableBorder": "1px solid #e5e7eb",
+            "showSerialNo": true
+        },
+        "headOptions": {
+            "headerHeight": "48px"
+        },
+        "bodyOptions": {
+            "rowHeight": "48px"
+        },
+        "footOptions": {
+            "showFooter": true,
+            "rowHeight": "48px",
+            "showAggregateRows": false,
+            "showTotals": false,
+            "showBalance": true,
+            "showInputsRow": true
+        }
+    },
     "columns": [
         {
             "header": "vchtype",
@@ -353,30 +374,8 @@
     "rendererType": "vertical",
     "views": [
         {
-            "rendererType": "vertical",
             "htmlId": "table-root",
-            "theme": "style2",
-            "verticalForm": {
-                "show": true,
-                "label": "Default Table",
-                "placeholder": "Search..."
-            },
-            "tableName": "purchases"
-        },
-        {
-            "rendererType": "cards",
-            "htmlId": "table-root",
-            "theme": "style2",
-            "verticalForm": {
-                "show": true,
-                "label": "Default Table",
-                "placeholder": "Search..."
-            },
-            "tableName": "purchases"
-        },
-        {
-            "htmlId": "table-root",
-            "theme": "style4",
+            "theme": "style1",
             "verticalForm": {
                 "show": true,
                 "label": "Default Table",
@@ -424,6 +423,17 @@
         {
             "rendererType": "vertical",
             "htmlId": "table-root",
+            "theme": "style2",
+            "verticalForm": {
+                "show": true,
+                "label": "Default Table",
+                "placeholder": "Search..."
+            },
+            "tableName": "purchases"
+        },
+        {
+            "rendererType": "vertical",
+            "htmlId": "table-root",
             "theme": "style4",
             "verticalForm": {
                 "show": true,
@@ -476,6 +486,17 @@
                     "showInputsRow": true
                 }
             }
+        },
+        {
+            "rendererType": "cards",
+            "htmlId": "table-root",
+            "theme": "style2",
+            "verticalForm": {
+                "show": true,
+                "label": "Default Table",
+                "placeholder": "Search..."
+            },
+            "tableName": "purchases"
         }
     ]
 }
