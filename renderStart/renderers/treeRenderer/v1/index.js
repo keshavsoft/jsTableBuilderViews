@@ -103,6 +103,9 @@ class treeRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto treeRenderer
+Object.assign(treeRenderer, window.ks.TableBuilder.renderers.treeRenderer || {});
+
 window.ks.TableBuilder.renderers.treeRenderer = treeRenderer;
 window.ks.TableBuilder.renderers.treeRenderer.version = "v1.0";
 

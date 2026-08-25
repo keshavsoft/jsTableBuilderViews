@@ -81,6 +81,9 @@ class masonryRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto masonryRenderer
+Object.assign(masonryRenderer, window.ks.TableBuilder.renderers.masonryRenderer || {});
+
 window.ks.TableBuilder.renderers.masonryRenderer = masonryRenderer;
 window.ks.TableBuilder.renderers.masonryRenderer.version = "v1.0";
 

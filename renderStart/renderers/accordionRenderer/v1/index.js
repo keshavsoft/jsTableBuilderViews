@@ -95,6 +95,9 @@ class accordionRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto accordionRenderer
+Object.assign(accordionRenderer, window.ks.TableBuilder.renderers.accordionRenderer || {});
+
 window.ks.TableBuilder.renderers.accordionRenderer = accordionRenderer;
 window.ks.TableBuilder.renderers.accordionRenderer.version = "v1.0";
 

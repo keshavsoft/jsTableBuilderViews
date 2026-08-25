@@ -78,6 +78,9 @@ class ulLiRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto ulLiRenderer
+Object.assign(ulLiRenderer, window.ks.TableBuilder.renderers.ulLiRenderer || {});
+
 window.ks.TableBuilder.renderers.ulLiRenderer = ulLiRenderer;
 window.ks.TableBuilder.renderers.ulLiRenderer.version = "v1.0";
 

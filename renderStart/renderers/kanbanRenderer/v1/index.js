@@ -85,6 +85,9 @@ class kanbanRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto kanbanRenderer
+Object.assign(kanbanRenderer, window.ks.TableBuilder.renderers.kanbanRenderer || {});
+
 window.ks.TableBuilder.renderers.kanbanRenderer = kanbanRenderer;
 window.ks.TableBuilder.renderers.kanbanRenderer.version = "v1.0";
 

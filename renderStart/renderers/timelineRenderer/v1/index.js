@@ -86,6 +86,9 @@ class timelineRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto timelineRenderer
+Object.assign(timelineRenderer, window.ks.TableBuilder.renderers.timelineRenderer || {});
+
 window.ks.TableBuilder.renderers.timelineRenderer = timelineRenderer;
 window.ks.TableBuilder.renderers.timelineRenderer.version = "v1.0";
 

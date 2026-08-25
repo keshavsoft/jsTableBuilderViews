@@ -83,6 +83,9 @@ class cardsRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto cardsRenderer
+Object.assign(cardsRenderer, window.ks.TableBuilder.renderers.cardsRenderer || {});
+
 window.ks.TableBuilder.renderers.cardsRenderer = cardsRenderer;
 window.ks.TableBuilder.renderers.cardsRenderer.version = "v1.0";
 

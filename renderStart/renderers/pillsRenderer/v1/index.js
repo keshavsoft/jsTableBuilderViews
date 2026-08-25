@@ -74,6 +74,9 @@ class pillsRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto pillsRenderer
+Object.assign(pillsRenderer, window.ks.TableBuilder.renderers.pillsRenderer || {});
+
 window.ks.TableBuilder.renderers.pillsRenderer = pillsRenderer;
 window.ks.TableBuilder.renderers.pillsRenderer.version = "v1.0";
 

@@ -71,6 +71,9 @@ class gridRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto gridRenderer
+Object.assign(gridRenderer, window.ks.TableBuilder.renderers.gridRenderer || {});
+
 window.ks.TableBuilder.renderers.gridRenderer = gridRenderer;
 window.ks.TableBuilder.renderers.gridRenderer.version = "v1.0";
 

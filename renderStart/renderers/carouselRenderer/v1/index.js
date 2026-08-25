@@ -108,6 +108,9 @@ class carouselRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto carouselRenderer
+Object.assign(carouselRenderer, window.ks.TableBuilder.renderers.carouselRenderer || {});
+
 window.ks.TableBuilder.renderers.carouselRenderer = carouselRenderer;
 window.ks.TableBuilder.renderers.carouselRenderer.version = "v1.0";
 

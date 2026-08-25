@@ -84,6 +84,9 @@ class dlRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto dlRenderer
+Object.assign(dlRenderer, window.ks.TableBuilder.renderers.dlRenderer || {});
+
 window.ks.TableBuilder.renderers.dlRenderer = dlRenderer;
 window.ks.TableBuilder.renderers.dlRenderer.version = "v1.0";
 

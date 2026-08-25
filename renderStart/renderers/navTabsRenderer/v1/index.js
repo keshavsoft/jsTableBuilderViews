@@ -104,6 +104,9 @@ class navTabsRenderer {
 window.ks = window.ks || {};
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto navTabsRenderer
+Object.assign(navTabsRenderer, window.ks.TableBuilder.renderers.navTabsRenderer || {});
+
 window.ks.TableBuilder.renderers.navTabsRenderer = navTabsRenderer;
 window.ks.TableBuilder.renderers.navTabsRenderer.version = "v1.0";
 

@@ -56,6 +56,9 @@ window.ks = window.ks || {};
 
 window.ks.TableBuilder = window.ks.TableBuilder || {};
 window.ks.TableBuilder.renderers = window.ks.TableBuilder.renderers || {};
+// Merge any properties previously attached onto verticalRenderer
+Object.assign(verticalRenderer, window.ks.TableBuilder.renderers.verticalRenderer || {});
+
 window.ks.TableBuilder.renderers.verticalRenderer = verticalRenderer;
 window.ks.TableBuilder.renderers.verticalRenderer.version = "v5.0";
 
