@@ -15,7 +15,13 @@ TableBuilder is a lightweight, declarative Javascript UI library for generating 
 ## Quick Start
 
 ### 1. Basic Setup
-Ensure you have included `renderStart.js` (which exports the `TableBuilder` class) in your HTML file.
+You can easily scaffold a project by running the npm CLI tool:
+
+```bash
+npx table-builder-views init
+```
+
+Or you can include `renderStart.js` (which exports the `TableBuilder` class) in your HTML file directly.
 
 ```javascript
 import { TableBuilder } from "./renderStart.js";
