@@ -1,8 +1,8 @@
 import { DEFAULT_CLASSES } from "./config/defaults.js";
 
-export function mergeClasses({ inClasses, inTheme = "style1" }) {
+export function mergeClasses({ inClasses, inTheme = "standardGrid" }) {
     const localClasses = inClasses || {};
-    const defaultThemeClasses = DEFAULT_CLASSES[inTheme] || DEFAULT_CLASSES.style1;
+    const defaultThemeClasses = DEFAULT_CLASSES[inTheme] || DEFAULT_CLASSES.standardGrid;
 
     return {
         ...defaultThemeClasses,

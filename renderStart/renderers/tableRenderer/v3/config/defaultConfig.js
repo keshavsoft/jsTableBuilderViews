@@ -2,7 +2,7 @@ const DEFAULT_CONFIG = {
     htmlId: "table-root",
     data: [],
     columns: [],
-    theme: "style1",
+    theme: "standardGrid",
     tableOptions: {
         commonOptions: {
             tableWidth: "100%",
