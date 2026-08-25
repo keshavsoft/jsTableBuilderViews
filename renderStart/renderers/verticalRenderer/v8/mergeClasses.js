@@ -1,8 +1,8 @@
-import { DEFAULT_CLASSES } from "./defaults.js";
+import { DEFAULT_CLASSES } from "../../../style/v2/verticalClasses.js";
 
-export function mergeClasses({ inClasses, inTheme = "style1" } = {}) {
+export function mergeClasses({ inClasses, inTheme = "standardVertical" } = {}) {
     const localClasses = inClasses || {};
-    const defaultThemeClasses = DEFAULT_CLASSES[inTheme] || DEFAULT_CLASSES.style1;
+    const defaultThemeClasses = DEFAULT_CLASSES[inTheme] || DEFAULT_CLASSES.standardVertical;
 
     return {
         ...defaultThemeClasses,
