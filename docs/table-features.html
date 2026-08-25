@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Features Guide - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Table Features Guide</h1>
+        
+        <p class="mb-8 text-gray-700">A consolidated guide explaining how to enable and configure Serial Numbers, Global Search, and Column Filters in TableBuilder.</p>
+
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">1. Serial Number Column Guide</h2>
+            <p class="mb-4 text-gray-700">TableBuilder supports an automatic Serial Number (<code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-blue-800">#</code>) column as the first column in your data table.</p>
+            
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Configuration:</h3>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
+{
+  "htmlId": "table-root",
+  "showSerialNo": true,
+  "data": [...],
+  "columns": [...]
+}
+            </pre>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
+                <li><strong><code class="font-mono">prepareColumns.js</code>:</strong> Prepends <code class="font-mono">{ header: "#", dataKey: "$serial" }</code> at Index 0.</li>
+                <li><strong><code class="font-mono">prepareData.js</code>:</strong> Maps each row item to include <code class="font-mono">$serial = index + 1</code>.</li>
+                <li><strong>Dynamic Re-indexing:</strong> Automatically re-sequences <code class="font-mono">$serial = 1, 2, 3...</code> whenever data is searched or filtered.</li>
+            </ul>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">2. Global Search Guide</h2>
+            <p class="mb-4 text-gray-700">Global Search queries across all visible columns simultaneously using substring matching.</p>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Usage & Method:</h3>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
+tableBuilder.setGlobalSearch("Electronics");
+            </pre>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
+                <li><strong><code class="font-mono">searchUtils.js</code>:</strong> Implements <code class="font-mono">processSearch()</code> matching queries across all column keys.</li>
+                <li><strong><code class="font-mono">buildTable/index.js</code>:</strong> Renders top search toolbar with input box, Search button, and row badge.</li>
+            </ul>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">3. Column Filters Guide</h2>
+            <p class="mb-4 text-gray-700">Individual column filters render input boxes directly beneath each column header inside <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">&lt;thead&gt;</code>.</p>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Usage & Method:</h3>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto mb-4">
+tableBuilder.setColumnFilter("category", "Electronics");
+            </pre>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">How It Works Under The Hood:</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 text-sm">
+                <li><strong><code class="font-mono">TableHeader.js</code>:</strong> <code class="font-mono">buildColumnFilterRow()</code> appends a second header row with input elements.</li>
+                <li><strong>Multi-Column AND Logic:</strong> Filters evaluate concurrently so rows match all active column criteria.</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
