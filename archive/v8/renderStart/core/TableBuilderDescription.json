@@ -1,0 +1,29 @@
+{
+    "name": "TableBuilder",
+    "version": "v15.0",
+    "purpose": "Build configured views from shared data and columns.",
+    "inputs": {
+        "htmlId": "Target DOM element id.",
+        "data": "Shared data source. Optional for views that do not require data.",
+        "columns": "Shared column definition.",
+        "endPoints": "Optional data access configuration.",
+        "views": "Array of views to render."
+    },
+    "views": {
+        "vertical": {
+            "purpose": "Render the columns as a vertical form.",
+            "requires": [
+                "columns"
+            ],
+            "dataRequired": false
+        },
+        "table": {
+            "purpose": "Render the columns and data as a table.",
+            "requires": [
+                "columns",
+                "data"
+            ],
+            "dataRequired": true
+        }
+    }
+}
