@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serial Number Guide - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
+        <h1 class="text-4xl font-bold text-gray-900 mb-6">Serial Number Column Guide</h1>
+        
+        <p class="mb-6 text-gray-700">TableBuilder provides built-in support for displaying a dynamic Serial Number (<code class="bg-gray-200 px-1 py-0.5 rounded text-sm">#</code>) column as the first column in your data table.</p>
+
+        <!-- Section 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">1. Enabling Serial Numbers via Configuration</h2>
+            <p class="mb-4 text-gray-700">You can enable the serial number column by adding <code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-blue-700">"showSerialNo": true</code> directly to your root configuration object or inside <code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-blue-700">tableOptions</code>.</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-800 overflow-x-auto">
+{
+  "htmlId": "table-root",
+  "showSerialNo": true,
+  "data": [
+    { "name": "Item A", "category": "Electronics" },
+    { "name": "Item B", "category": "Books" }
+  ],
+  "columns": [
+    { "header": "Item Name", "dataKey": "name" },
+    { "header": "Category", "dataKey": "category" }
+  ],
+  "views": [
+    { "rendererType": "table" }
+  ]
+}
+            </pre>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">2. How It Works Under The Hood</h2>
+            <p class="mb-4 text-gray-700">The serial number feature works through a clean 3-step pipeline inside the library engine:</p>
+            <ul class="list-disc pl-6 space-y-3 text-gray-700">
+                <li>
+                    <strong>Config Flag Extraction (<code class="text-sm font-mono">TableBuilder.js</code> & <code class="text-sm font-mono">setupDataStore.js</code>):</strong> 
+                    The constructor captures <code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">showSerialNo</code> and passes it to the data initialization pipeline.
+                </li>
+                <li>
+                    <strong>Column Header Prepending (<code class="text-sm font-mono">prepareColumns.js</code>):</strong> 
+                    When <code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">showSerialNo</code> is true, the engine automatically prepends a column definition at Index 0:
+                    <br>
+                    <code class="bg-gray-100 p-1 mt-1 block rounded text-xs font-mono text-gray-800">{ "header": "#", "dataKey": "$serial", "options": { "width": "60px", "align": "center" } }</code>
+                </li>
+                <li>
+                    <strong>Sequential Index Mapping (<code class="text-sm font-mono">prepareData.js</code>):</strong> 
+                    Each data row is mapped to include <code class="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">$serial = index + 1</code>.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">3. Dynamic Re-sequencing</h2>
+            <p class="text-gray-700">Whenever table data is searched or filtered, the engine automatically re-calculates <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono">$serial = 1, 2, 3...</code> for the displayed matching rows so that serial numbers always count sequentially starting from 1.</p>
+        </div>
+
+    </div>
+</body>
+</html>
