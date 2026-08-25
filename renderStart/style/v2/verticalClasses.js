@@ -25,6 +25,29 @@ export const DEFAULT_CLASSES = {
     horizontalLabelAligned: {
         container: "w-full",
         verticalForm: {
+            container: "flex flex-col gap-1 py-2 w-full bg-white border border-gray-200 border-b-0 rounded-t-lg mx-auto",
+            wrapper: "grid grid-cols-3 items-center w-full gap-2",
+            label: "font-semibold text-left pl-4 text-gray-700 text-xs uppercase tracking-wider whitespace-nowrap",
+            input: "border border-gray-300 rounded px-2 py-1 w-full focus:outline-none focus:border-blue-500 text-sm",
+            button: "bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-3 py-1 rounded transition duration-150 cursor-pointer whitespace-nowrap w-full",
+            inputGroup: "col-span-2 grid grid-cols-2 gap-2 w-full pr-4"
+        }
+    },
+    horizontalLabelAligned2: {
+        container: "w-full",
+        verticalForm: {
+            container: "flex flex-col gap-2 py-2 w-full bg-white border border-gray-200 border-b-0 rounded-t-lg mx-auto",
+            wrapper: "grid grid-cols-3 items-center w-full gap-4",
+            label: "font-semibold text-left pl-4 text-gray-800 text-sm whitespace-nowrap",
+            input: "border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500 text-sm",
+            button: "bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded transition duration-150 cursor-pointer whitespace-nowrap w-full",
+            inputGroup: "col-span-2 grid grid-cols-2 gap-4 w-full pr-4"
+        }
+    },
+
+    horizontalLabelAligned1: {
+        container: "w-full",
+        verticalForm: {
             container: "flex flex-col gap-4 p-4 w-full bg-white border border-gray-200 border-b-0 rounded-t-lg mx-auto",
             wrapper: "flex flex-row items-center max-w-lg mx-auto w-full",
             label: "font-semibold w-32 text-right pr-4 text-gray-800 text-sm whitespace-nowrap",
