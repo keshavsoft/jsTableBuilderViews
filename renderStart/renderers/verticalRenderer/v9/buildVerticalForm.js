@@ -1,49 +1,29 @@
 import { createContainerElement } from "./buildVerticalForm/forForm/createContainerElement.js";
-import { buildField } from "./buildVerticalForm/forField/index.js";
+import { appendColumns } from "./buildVerticalForm/forForm/appendColumns.js";
+import { handleButtonClick } from "./buildVerticalForm/forForm/handleButtonClick.js";
 
-const buildVerticalFormElements = ({ inData = [], inColumns = [], inClasses = {}, onButtonClick }) => {
-    const container = createContainerElement({ inClasses });
+const buildVerticalFormElements = ({ inData = [], inColumns = [], inClasses = {}, inOnButtonClick }) => {
+    const localData = inData;
+    const localColumns = inColumns;
+    const localClasses = inClasses;
+    const localOnButtonClick = inOnButtonClick;
 
-    const handleButtonClick = (buttonData) => {
-        const lineData = {};
-        const { event } = buttonData;
+    const container = createContainerElement({ inClasses: localClasses });
 
-        if (event && event.currentTarget) {
-            // Traverse to the specific field (line) instead of the whole form
-            const fieldContainer = event.currentTarget.closest(".ks-vertical-form-field");
-            if (fieldContainer) {
-                const inputs = fieldContainer.querySelectorAll("input, select, textarea, ks-table-cell-content-common-v5");
-                inputs.forEach(input => {
-                    const key = input.name || input.id;
-                    if (key) {
-                        lineData[key] = input.type === "checkbox" ? input.checked : input.value;
-                    }
-                });
-            }
-        };
-
-        console.log("nnnnnnnnnn : ", onButtonClick, lineData, buttonData);
-
-        if (typeof onButtonClick === "function") {
-            onButtonClick({
-                ...buttonData,
-                lineData,
-                domContent: container
-            });
-        }
+    const handleButtonClickCb = (buttonData) => {
+        handleButtonClick({
+            inButtonData: buttonData,
+            inContainer: container,
+            inOnButtonClick: localOnButtonClick
+        });
     };
 
-    inColumns.forEach(col => {
-        const fieldNode = buildField({
-            inData,
-            inCol: col,
-            inClasses,
-            onButtonClick: handleButtonClick
-        });
-
-        if (fieldNode) {
-            container.appendChild(fieldNode);
-        }
+    appendColumns({
+        inColumns: localColumns,
+        inData: localData,
+        inClasses: localClasses,
+        inContainer: container,
+        inOnButtonClick: handleButtonClickCb
     });
 
     return container;

@@ -42,7 +42,7 @@ class verticalRenderer {
             inData: this.dataStore.data,
             inColumns: this.dataStore.columns,
             inClasses: this?.classes,
-            onButtonClick: this.onButtonClick
+            inOnButtonClick: this.onButtonClick
         });
     };
 
