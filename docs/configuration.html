@@ -3,48 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuration Schema - TableBuilder</title>
+    <title>Configuration Schema & CDN Knowledge - TableBuilder</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
     <div class="max-w-4xl mx-auto py-12 px-6">
-        <a href="index.html" class="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Home</a>
-        <h1 class="text-4xl font-bold text-gray-900 mb-6">Configuration Schema</h1>
+        <a href="index.html" class="text-blue-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
         
-        <p class="mb-6">The entire `TableBuilder` UI is driven by a single JSON configuration object passed to the constructor. This document explains the primary keys.</p>
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Configuration Schema & CDN Knowledge</h1>
+        <p class="text-lg text-gray-600 mb-8">How to pull configuration knowledge directly from the CDN library without writing custom JSON from scratch.</p>
 
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Root Object</h2>
-            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+        <!-- CRITICAL NEW SECTION: Pulling Knowledge from CDN -->
+        <div class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white p-8 rounded-xl shadow-lg border border-indigo-700 mb-10 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/40">
+                ⭐ Core Architectural Concept
+            </div>
+            <h2 class="text-2xl font-bold text-white">Pulling Configuration Knowledge Directly from CDN</h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+                Developers do <strong>not</strong> need to write configuration JSON from scratch or invent custom structures. The CDN library (<code class="text-sky-300">TableBuilder</code>) owns the authoritative schema knowledge and exports static methods to pull valid configuration objects at runtime:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-sky-400 text-sm font-mono mb-1">TableBuilder.sampleConfig()</h3>
+                    <p class="text-xs text-slate-300">
+                        Pulls the official, fully valid sample configuration object template directly from the CDN library.
+                    </p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-purple-400 text-sm font-mono mb-1">TableBuilder.describe()</h3>
+                    <p class="text-xs text-slate-300">
+                        Pulls the schema description metadata, required input parameters, and view constraints.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Code Snippet -->
+            <div class="pt-2">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Code Example: Using CDN Knowledge when config.json does not exist</h4>
+                <pre class="bg-slate-950 p-4 rounded-lg text-xs font-mono text-slate-200 overflow-x-auto border border-slate-800"><code><span class="text-slate-500">// 1. Import TableBuilder from CDN</span>
+<span class="text-purple-400">import</span> { TableBuilder } <span class="text-purple-400">from</span> <span class="text-emerald-300">"https://keshavsoft.github.io/jsTableBuilderViews/renderStart.js"</span>;
+
+<span class="text-slate-500">// 2. Pull valid configuration template directly from CDN</span>
+<span class="text-purple-400">const</span> config = TableBuilder.sampleConfig();
+
+<span class="text-slate-500">// 3. Attach your raw data array to the CDN config object</span>
+config.data = rawDataArray;
+config.htmlId = <span class="text-emerald-300">"table-root"</span>;
+
+<span class="text-slate-500">// 4. Instantiate and render TableBuilder</span>
+<span class="text-purple-400">const</span> builder = <span class="text-purple-400">new</span> TableBuilder(config);
+<span class="text-purple-400">await</span> builder.build();</code></pre>
+            </div>
+        </div>
+
+        <!-- The Root Object -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Root Object Structure</h2>
+            <pre class="bg-gray-100 p-4 rounded text-sm font-mono text-gray-700 overflow-x-auto">
 {
-  "htmlId": "app-root",
+  "htmlId": "table-root",
   "data": [...],
   "columns": [...],
   "views": [...]
 }
             </pre>
-            <ul class="list-disc pl-6 mt-4 space-y-2">
+            <ul class="list-disc pl-6 mt-4 space-y-2 text-sm text-gray-700">
                 <li><strong>htmlId</strong> (String): The ID of the DOM element where the app will be rendered.</li>
-                <li><strong>data</strong> (Array): An array of JSON objects containing the raw data. The engine flattens nested keys automatically.</li>
-                <li><strong>columns</strong> (Array): Defines the schema for mapping data attributes to display headers.</li>
-                <li><strong>views</strong> (Array): Defines which UI renderers to use (e.g., vertical filters and data tables).</li>
+                <li><strong>data</strong> (Array): An array of JSON objects containing raw data. The engine flattens nested keys automatically.</li>
+                <li><strong>columns</strong> (Array): Defines schema for mapping data attributes to display headers, cell width, sorting, cell styling themes, and input control types (`controlType`).</li>
+                <li><strong>views</strong> (Array): Defines layout renderers to execute (e.g. `rendererType: "table"` vs `rendererType: "vertical"`).</li>
             </ul>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Columns Array</h2>
-            <p class="mb-4">Each object in the `columns` array maps a flattened data key to a human-readable column name.</p>
-            <pre class="bg-gray-100 p-4 rounded text-sm text-gray-700 overflow-x-auto">
+        <!-- The Columns Array -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">The Columns Array Schema</h2>
+            <p class="mb-4 text-sm text-gray-600">Each object in the `columns` array maps a flattened data key to display properties and input controls.</p>
+            <pre class="bg-gray-100 p-4 rounded text-sm font-mono text-gray-700 overflow-x-auto">
 {
   "dataKey": "details.stockitemname",
-  "header": "Item Name",
+  "header": "Stock Item Name",
   "options": {
       "sortable": true,
-      "width": "150px"
+      "width": "150px",
+      "table": {
+          "tbody": { "theme": "table.cell.primary" },
+          "tfoot": { "inputsRow": { "showInput": true, "controlType": "select" } }
+      }
   }
 }
             </pre>
-            <p class="mt-4 text-sm text-gray-600"><em>Note: Ensure `dataKey` matches exactly how the keys appear in your data after flattening.</em></p>
         </div>
     </div>
 </body>

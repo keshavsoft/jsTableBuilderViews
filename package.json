@@ -17,20 +17,27 @@
   },
   "scripts": {
     "test": "echo \"No tests specified yet\" && exit 0",
-    "build": "vite build"
+    "build": "vite build",
+    "serve": "vite --port 3000",
+    "dev": "vite --port 3000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keshavsoft/tableBuilderViews.git"
+    "url": "git+https://github.com/keshavsoft/jsTableBuilderViews.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "table-builder",
+    "web-components",
+    "data-table",
+    "vertical-form"
+  ],
+  "author": "KeshavSoft",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/keshavsoft/tableBuilderViews/issues"
+    "url": "https://github.com/keshavsoft/jsTableBuilderViews/issues"
   },
-  "homepage": "https://github.com/keshavsoft/tableBuilderViews#readme",
+  "homepage": "https://keshavsoft.github.io/jsTableBuilderViews/",
   "devDependencies": {
     "vite": "^8.2.1"
   }
