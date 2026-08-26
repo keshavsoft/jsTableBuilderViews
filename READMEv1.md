@@ -1,8 +1,8 @@
-# KeshavSoft jsTableBuilderViews
+# KeshavSoft TableBuilder
 
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://keshavsoft.github.io/jsTableBuilderViews/)
 
-jsTableBuilderViews is a lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.
+TableBuilder is a lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.
 
 ## Features
 - **Declarative Configuration**: Define your UI using a simple JSON structure.
@@ -13,7 +13,7 @@ jsTableBuilderViews is a lightweight, declarative Javascript UI library for gene
 - **Self-Documenting**: You can call `TableBuilder.sampleConfig()` to get a complete, valid sample configuration object.
 
 ## Dependencies
-This repository relies on the [ks-web-components](https://github.com/keshavsoft/ks-web-components) repository for its custom HTML elements (such as `ks-table-cell-content-common`). Ensure that the `ks-web-components` bundle is loaded on your page before using jsTableBuilderViews.
+This repository relies on the [ks-web-components](https://github.com/keshavsoft/ks-web-components) repository for its custom HTML elements (such as `ks-table-cell-content-common`). Ensure that the `ks-web-components` bundle is loaded on your page before using TableBuilder.
 
 ## Quick Start
 
@@ -38,55 +38,11 @@ const config = {
     columns: [
         {
             dataKey: "name",
-            header: "Item Name",
-            options: {
-                width: "150px",
-                sortable: true,
-                table: {
-                    isVisible: true,
-                    tfoot: {
-                        summary: {},
-                        inputsRow: {
-                            showInput: true,
-                            controlType: "select",
-                            className: "w-48 border border-gray-300 rounded px-2 py-1"
-                        }
-                    }
-                },
-                verticalForm: {
-                    elements: [
-                        "label",
-                        "input",
-                        "button"
-                    ]
-                }
-            }
+            header: "Item Name"
         },
         {
             dataKey: "category",
-            header: "Category",
-            options: {
-                width: "150px",
-                sortable: true,
-                table: {
-                    isVisible: true,
-                    tfoot: {
-                        summary: {},
-                        inputsRow: {
-                            showInput: true,
-                            controlType: "select",
-                            className: "w-48 border border-gray-300 rounded px-2 py-1"
-                        }
-                    }
-                },
-                verticalForm: {
-                    elements: [
-                        "label",
-                        "input",
-                        "button"
-                    ]
-                }
-            }
+            header: "Category"
         }
     ],
     views: [
