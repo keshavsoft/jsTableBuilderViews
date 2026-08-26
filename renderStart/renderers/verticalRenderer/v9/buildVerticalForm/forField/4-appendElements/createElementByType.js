@@ -1,8 +1,8 @@
 import { createLabelElement } from "../forLabel/createLabelElement.js";
 import { createInputElement } from "../forInput/createInputElement.js";
-import { createButtonElement } from "../forButton/createButtonElement.js";
+import { createButtonElement } from "../forButton/index.js";
 
-const createElementByType = ({ type, inData, inCol, inFormClasses, onButtonClick }) => {
+const createElementByType = ({ type, inData, inCol, inFormClasses, inOnButtonClick }) => {
     switch (type) {
         case "label":
             return createLabelElement({
@@ -21,7 +21,7 @@ const createElementByType = ({ type, inData, inCol, inFormClasses, onButtonClick
             return createButtonElement({
                 inCol,
                 inButtonClass: inFormClasses.button,
-                onButtonClick
+                inOnButtonClick
             });
 
         default:
