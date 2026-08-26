@@ -1,14 +1,20 @@
-# How-To Tutorials
+# How-To Tutorials & Practical Recipes
 
-This guide provides step-by-step instructions for common tasks when working with TableBuilder.
+> **Quick Cross-Navigation**: 
+> 📄 [HTML Version (`docs/howto.html`)](https://keshavsoft.github.io/jsTableBuilderViews/howto.html) | 📖 [README.md](./README.md) | 🛠️ [DEV.md](./DEV.md) | 🏗️ [ARCHITECTURE.md](./ARCHITECTURE.md) | 📦 [NPM Package](https://www.npmjs.com/package/table-builder-views) | 🐙 [GitHub Repo](https://github.com/keshavsoft/jsTableBuilderViews)
+
+---
+
+This guide provides step-by-step practical recipes for common developer tasks when working with `TableBuilder`.
+
+---
 
 ## 1. How to Add a New Column to the Table
 
-To add a new column, you simply need to update your `config.json` (or the `columns` array passed to the `TableBuilder` constructor).
+Update your `config.json` (or the `columns` array passed to `new TableBuilder(config)`):
 
 ```javascript
 const columns = [
-    // Existing column
     {
         dataKey: "customerName",
         header: "Customer Name"
@@ -16,48 +22,52 @@ const columns = [
     // NEW Column
     {
         dataKey: "orderTotal",
-        header: "Total Amount"
+        header: "Total Amount",
+        options: { width: "120px", sortable: true }
     }
 ];
 ```
-> **Note**: The `dataKey` must exactly match the key in your JSON data. If the data is nested (e.g., `{ order: { total: 100 } }`), use dot notation: `"order.total"`.
+> **Tip**: If data is nested (e.g., `{ order: { total: 100 } }`), use dot notation: `"order.total"`.
 
-## 2. How to Enable Data Filtering
+---
 
-To create a UI where a user can filter the table, you need to use **both** renderer types: a `vertical` form to hold the inputs, and a `table` to show the results.
+## 2. How to Enable Dynamic Data Filtering
 
-In your `views` array, configure both:
+Configure **both** renderer types in your `views` array:
 
 ```javascript
 const views = [
     {
-        rendererType: "vertical", // Renders the input form
-        // ... vertical configuration ...
+        rendererType: "vertical", // Input form view
     },
     {
-        rendererType: "table",    // Renders the data grid
-        // ... table configuration ...
+        rendererType: "table",    // Data grid view
     }
 ];
 ```
 
-Because `TableBuilder` handles the event wiring automatically, any button clicked inside the `vertical` form with the text "Filter" or "Submit" will automatically trigger the filtering logic on the `table` below it!
+Clicking any button with text `"Filter"` or `"Submit"` inside the `vertical` form automatically triggers dynamic table filtering.
 
-## 3. How to Apply Tailwind Themes
+---
 
-You can dynamically style your tables by passing a `theme` property in your view configuration. The renderers will apply the corresponding Tailwind utility classes.
+## 3. How to Pull Configuration Knowledge from CDN when config.json is Missing
 
 ```javascript
-const views = [
-    {
-        rendererType: "table",
-        theme: "dark" // or "light", "blue", etc.
-    }
-];
-```
-*(Ensure your CSS build system is compiling the necessary Tailwind classes for the theme).*
+import { TableBuilder } from "https://keshavsoft.github.io/jsTableBuilderViews/renderStart.js";
 
-## Links
-- [Back to README](./README.md)
-- [Developer Guide](./DEV.md)
-- [Live HTML Renderers Guide](https://keshavsoft.github.io/jsTableBuilderViews/renderers.html)
+// Pull sample config template directly from CDN
+const config = TableBuilder.sampleConfig();
+config.data = myDataArray;
+
+const builder = new TableBuilder(config);
+await builder.build();
+```
+
+---
+
+## 🌐 Documentation Links & References
+
+* 📄 **HTML How-To Guide**: [docs/howto.html](https://keshavsoft.github.io/jsTableBuilderViews/howto.html)
+* 📖 **Main README**: [README.md](./README.md)
+* 🛠️ **Developer Guide**: [DEV.md](./DEV.md)
+* 📦 **NPM Package Page**: [table-builder-views](https://www.npmjs.com/package/table-builder-views)
