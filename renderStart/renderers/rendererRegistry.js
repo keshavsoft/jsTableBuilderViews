@@ -1,4 +1,4 @@
-import { tableRenderer } from "./tableRenderer/v3/index.js";
+import { tableRenderer } from "./tableRenderer/v4/index.js";
 import { verticalRenderer } from "./verticalRenderer/v9/index.js";
 
 import { cardsRenderer } from "./cardsRenderer/v1/index.js";

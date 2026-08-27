@@ -378,17 +378,6 @@
     "rendererType": "vertical",
     "views": [
         {
-            "rendererType": "vertical",
-            "htmlId": "table-root",
-            "theme": "horizontalLabelAligned",
-            "verticalForm": {
-                "show": true,
-                "label": "Default Table",
-                "placeholder": "Search..."
-            },
-            "tableName": "purchases"
-        },
-        {
             "htmlId": "table-root",
             "theme": "standardGridExtraCompact",
             "verticalForm": {
