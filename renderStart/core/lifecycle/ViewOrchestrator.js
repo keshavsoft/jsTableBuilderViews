@@ -7,7 +7,7 @@ export const renderSpecificView = async (instance, config) => {
     const rendererType = config.rendererType || "vertical";
     const htmlId = instance.htmlId || "table-root";
     const theme = config?.theme;
-    
+
     const rootElement = document.getElementById(htmlId);
     if (!rootElement) return;
 
@@ -24,7 +24,7 @@ export const renderSpecificView = async (instance, config) => {
             if (btnText === "filter" || btnText === "submit") {
                 instance.filterData(data.lineData);
                 // Call the RefreshManager (Stage Hand) to perform a partial update
-                refreshDataViews(instance); 
+                refreshDataViews(instance);
             }
         }
     });
@@ -41,5 +41,5 @@ export const renderAllViews = async (instance) => {
     // Stage Manager cues the actors
     for (const config of instance.views) {
         await renderSpecificView(instance, config);
-    }
+    };
 };
