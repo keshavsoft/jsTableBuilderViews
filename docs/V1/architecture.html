@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Architecture - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <header class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="bg-indigo-600 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider">Architecture</span>
+                <h1 class="text-lg font-bold text-white">ARCHITECTURE.md HTML View</h1>
+            </div>
+            <nav class="flex items-center gap-3 text-xs">
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/ARCHITECTURE.md" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                    🏗️ View Original Markdown (ARCHITECTURE.md)
+                </a>
+                <a href="index.html" class="px-3 py-1.5 rounded bg-indigo-600 text-white font-bold">
+                    Docs Hub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto py-10 px-6">
+        <a href="index.html" class="text-indigo-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Ecosystem Architecture & System Design</h1>
+        <p class="text-lg text-gray-600 mb-8">System boundaries, data flow diagrams, and Web Components collaboration.</p>
+
+        <div class="bg-slate-900 text-slate-200 p-6 rounded-xl border border-slate-800 mb-8 font-mono text-xs overflow-x-auto">
+<pre>User Web App  ===>  jsTableBuilderViews Engine  ===>  ks-web-components UI Elements
+(Raw JSON)         (Data Flattener & State)         (<ks-table-cell-content-common>)</pre>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-4">
+            <h2 class="text-2xl font-bold text-gray-900">Ecosystem Boundaries</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                <li><strong>jsTableBuilderViews</strong> orchestrates layout, state management, column schemas, and DOM node refreshing.</li>
+                <li><strong>ks-web-components</strong> provides custom element tags (<code class="font-mono">&lt;ks-table-cell-content-common&gt;</code>) and Tailwind CSS design tokens (`PREDEFINED_TEXT_CLASSES`).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

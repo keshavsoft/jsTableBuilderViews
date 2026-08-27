@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeshavSoft Architecture: ks-web-components vs jsTableBuilderViews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .heading-font {
+            font-family: 'Outfit', sans-serif;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-16">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-sm">
+                    KS
+                </div>
+                <div>
+                    <h1 class="heading-font font-bold text-slate-900 text-lg leading-tight">KeshavSoft Architecture</h1>
+                    <p class="text-xs text-slate-500">Repository Dependency & Relationship Report</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://github.com/keshavsoft/ks-web-components" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200 hover:bg-purple-100 transition">
+                    ks-web-components ↗
+                </a>
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition">
+                    jsTableBuilderViews ↗
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 pt-10 space-y-10">
+
+        <!-- Banner Card -->
+        <section class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
+                <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                Directly Interdependent Libraries
+            </div>
+            
+            <h2 class="heading-font text-3xl font-extrabold text-slate-900 leading-tight">
+                Are these two repositories related? Yes!
+            </h2>
+            
+            <p class="text-slate-600 text-base leading-relaxed">
+                <code class="code-font text-sm bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200 font-semibold">jsTableBuilderViews</code> is the high-level table grid & form builder framework. It relies directly on <code class="code-font text-sm bg-purple-50 text-purple-700 px-2 py-0.5 rounded border border-purple-200 font-semibold">ks-web-components</code> to render individual custom HTML elements (such as <code class="code-font text-xs text-purple-800">&lt;ks-table-cell-content-common&gt;</code>) inside every table cell.
+            </p>
+        </section>
+
+        <!-- Side-by-Side Comparison -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Component Card -->
+            <div class="bg-white rounded-2xl p-7 border border-purple-200 shadow-sm flex flex-col justify-between space-y-6 hover:shadow-md transition">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-1 rounded">
+                            Core Dependency
+                        </span>
+                        <span class="text-xs font-mono text-slate-400">Low-Level</span>
+                    </div>
+
+                    <div>
+                        <h3 class="heading-font text-2xl font-bold text-slate-900 mb-2">ks-web-components</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            The atomic component library and design system token engine. Handles individual inputs, formatted text, buttons, and cell validation.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-700 pt-2 border-t border-slate-100">
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-600 font-bold">✓</span>
+                            <span><strong>Main Element:</strong> <code class="code-font text-purple-800 bg-purple-50 px-1.5 py-0.5 rounded">&lt;ks-table-cell-content-common&gt;</code></span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-600 font-bold">✓</span>
+                            <span><strong>Scope:</strong> Single cell level (<code class="code-font text-slate-600">&lt;td&gt;</code> / <code class="code-font text-slate-600">&lt;th&gt;</code>)</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-purple-600 font-bold">✓</span>
+                            <span><strong>Styles:</strong> Tailwind JSON presets (<code class="code-font text-slate-600">PREDEFINED_TEXT_CLASSES</code>)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-xs font-semibold text-purple-700 bg-purple-50 p-3 rounded-lg text-center">
+                    Role: Atomic Building Block (Bricks)
+                </div>
+            </div>
+
+            <!-- Builder Card -->
+            <div class="bg-white rounded-2xl p-7 border border-blue-200 shadow-sm flex flex-col justify-between space-y-6 hover:shadow-md transition">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100 px-2.5 py-1 rounded">
+                            Framework Builder
+                        </span>
+                        <span class="text-xs font-mono text-slate-400">High-Level</span>
+                    </div>
+
+                    <div>
+                        <h3 class="heading-font text-2xl font-bold text-slate-900 mb-2">jsTableBuilderViews</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            The layout orchestrator framework. Manages entire table structures, headers, footers, sorting, state management, and vertical views.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-700 pt-2 border-t border-slate-100">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-600 font-bold">✓</span>
+                            <span><strong>Main Engine:</strong> <code class="code-font text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded">TableBuilder</code> class</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-600 font-bold">✓</span>
+                            <span><strong>Scope:</strong> Full Grid (<code class="code-font text-slate-600">&lt;table&gt;</code>) & Vertical Views</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-600 font-bold">✓</span>
+                            <span><strong>Features:</strong> State, sorting, filtering, column visibility</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="text-xs font-semibold text-blue-700 bg-blue-50 p-3 rounded-lg text-center">
+                    Role: Grid Architect & Orchestrator (Building)
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Execution Workflow -->
+        <section class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <h3 class="heading-font text-xl font-bold text-slate-900">System Execution Flow</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="w-7 h-7 rounded-full bg-slate-900 text-white text-xs font-bold flex items-center justify-center">1</div>
+                    <h4 class="font-bold text-slate-900 text-sm">JSON Config</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Developer passes table data rows, column keys, and options.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-blue-50/70 border border-blue-200 space-y-2">
+                    <div class="w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center">2</div>
+                    <h4 class="font-bold text-blue-900 text-sm">TableBuilder</h4>
+                    <p class="text-xs text-blue-700 leading-relaxed">
+                        Generates table layout, headers, footers, and view structures.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-purple-50/70 border border-purple-200 space-y-2">
+                    <div class="w-7 h-7 rounded-full bg-purple-600 text-white text-xs font-bold flex items-center justify-center">3</div>
+                    <h4 class="font-bold text-purple-900 text-sm">Web Component</h4>
+                    <p class="text-xs text-purple-700 leading-relaxed">
+                        Embeds cell elements to render inputs, text, or buttons.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+                    <div class="w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">4</div>
+                    <h4 class="font-bold text-emerald-900 text-sm">Rendered DOM</h4>
+                    <p class="text-xs text-emerald-700 leading-relaxed">
+                        Applies Tailwind classes and displays the final interactive UI.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Code Snippet -->
+        <section class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="heading-font text-xl font-bold text-slate-900">Code Integration Example</h3>
+                <span class="text-xs font-mono font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded">HTML / ES Module</span>
+            </div>
+
+            <p class="text-xs text-slate-500">
+                Always import <code class="code-font text-purple-700 font-semibold">ks-web-components.js</code> first before initializing <code class="code-font text-blue-700 font-semibold">TableBuilder</code>:
+            </p>
+
+            <div class="bg-slate-900 rounded-xl p-5 overflow-x-auto text-xs code-font text-slate-200 leading-relaxed border border-slate-800">
+                <pre><code><span class="text-slate-500">&lt;!-- 1. Load the core web component dependency FIRST --&gt;</span>
+<span class="text-sky-400">&lt;script</span> <span class="text-purple-300">src</span>=<span class="text-emerald-300">"https://keshavsoft.github.io/ks-web-components/dist/v12/ks-web-components.js"</span> <span class="text-purple-300">type</span>=<span class="text-emerald-300">"module"</span><span class="text-sky-400">&gt;&lt;/script&gt;</span>
+
+<span class="text-slate-500">&lt;!-- 2. Import and use TableBuilder from jsTableBuilderViews SECOND --&gt;</span>
+<span class="text-sky-400">&lt;script</span> <span class="text-purple-300">type</span>=<span class="text-emerald-300">"module"</span><span class="text-sky-400">&gt;</span>
+    <span class="text-purple-400">import</span> { TableBuilder } <span class="text-purple-400">from</span> <span class="text-emerald-300">"https://keshavsoft.github.io/jsTableBuilderViews/renderStart.js"</span>;
+
+    <span class="text-purple-400">const</span> builder = <span class="text-purple-400">new</span> TableBuilder({
+        htmlId: <span class="text-emerald-300">"app"</span>,
+        data: [{ id: <span class="text-amber-400">1</span>, item: <span class="text-emerald-300">"Laptop"</span> }],
+        columns: [{ dataKey: <span class="text-emerald-300">"item"</span>, header: <span class="text-emerald-300">"Item Name"</span> }],
+        views: [{ rendererType: <span class="text-emerald-300">"table"</span> }]
+    });
+
+    <span class="text-purple-400">await</span> builder.build();
+<span class="text-sky-400">&lt;/script&gt;</span></code></pre>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-5xl mx-auto px-6 mt-12 text-center text-xs text-slate-400">
+        KeshavSoft System Documentation Report
+    </footer>
+
+</body>
+</html>

@@ -1,57 +1,681 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KeshavSoft jsTableBuilderViews Documentation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+<title>KeshavSoft jsTableBuilderViews Documentation</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
+    }
+</style>
+```
+
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
-    <!-- Top Navigation Bar for Cross-Linking -->
-    <header class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-4">
-            <div class="flex items-center space-x-2">
-                <span class="bg-blue-600 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider">Docs Portal</span>
-                <h1 class="text-lg font-bold text-white">jsTableBuilderViews</h1>
-            </div>
-            <nav class="flex items-center gap-3 text-xs">
-                <a href="https://github.com/keshavsoft/jsTableBuilderViews" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium">
-                    🐙 GitHub Repo / README
+
+<body class="bg-slate-50 text-slate-800">
+
+<!-- ========================================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================================= -->
+
+<header class="sticky top-0 z-50 bg-slate-950 text-white shadow-lg">
+
+    <div class="max-w-6xl mx-auto px-6 py-4">
+
+        <div class="flex flex-wrap items-center justify-between gap-4">
+
+            <a href="index.html"
+               class="flex items-center gap-3">
+
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 font-bold">
+                    KS
+                </span>
+
+                <div>
+                    <div class="font-bold text-lg">
+                        jsTableBuilderViews
+                    </div>
+
+                    <div class="text-xs text-slate-400">
+                        Documentation Portal
+                    </div>
+                </div>
+
+            </a>
+
+            <nav class="flex flex-wrap gap-2 text-sm">
+
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews"
+                   target="_blank"
+                   class="rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 hover:bg-slate-800">
+                    🐙 GitHub
                 </a>
-                <a href="https://www.npmjs.com/package/table-builder-views" target="_blank" class="px-3 py-1.5 rounded bg-red-600/90 hover:bg-red-600 text-white font-medium">
-                    📦 NPM Package Page
+
+                <a href="https://www.npmjs.com/package/table-builder-views"
+                   target="_blank"
+                   class="rounded-lg bg-red-600 px-4 py-2 font-medium hover:bg-red-700">
+                    📦 NPM
                 </a>
+
             </nav>
+
         </div>
-    </header>
 
-    <div class="max-w-4xl mx-auto py-10 px-6">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">KeshavSoft jsTableBuilderViews</h1>
-        <p class="text-lg text-gray-600 mb-8">The complete JSON-driven UI framework for vertical forms, data tables, and dynamic filtering.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 class="text-2xl font-bold text-blue-600 mb-4">Documentation Guides</h2>
-                <ul class="list-disc pl-5 space-y-2 text-sm text-blue-600">
-                    <li><a href="relationship.html" class="hover:underline font-semibold text-purple-600">Ecosystem Architecture & Relationship</a> - How ks-web-components & jsTableBuilderViews work together</li>
-                    <li><a href="configuration.html" class="hover:underline font-semibold">Configuration Schema & CDN Knowledge</a> - Deep dive into <code>config.json</code> & <code>TableBuilder.sampleConfig()</code></li>
-                    <li><a href="npm-usage.html" class="hover:underline font-semibold">CLI Scaffolding & NPM Usage</a> - What <code>npx table-builder-views init</code> scaffolds</li>
-                    <li><a href="table-features.html" class="hover:underline">Table Features Guide</a> - Serial Numbers, Global Search, and Column Filters.</li>
-                    <li><a href="renderers.html" class="hover:underline">Renderers Guide</a> - Learn about Table and Vertical UI types.</li>
-                </ul>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Official References & Links</h2>
-                <ul class="list-disc pl-5 space-y-2 text-sm text-blue-600">
-                    <li><a href="https://github.com/keshavsoft/jsTableBuilderViews" class="hover:underline font-bold text-gray-800" target="_blank">🐙 GitHub Repository (README.md)</a></li>
-                    <li><a href="https://www.npmjs.com/package/table-builder-views" class="hover:underline font-bold text-red-600" target="_blank">📦 NPM Package Registry Page</a></li>
-                    <li><a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/DEV.md" class="hover:underline" target="_blank">DEV Architecture Guide</a></li>
-                    <li><a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/HOWTO.md" class="hover:underline" target="_blank">HOWTO Tutorials</a></li>
-                    <li class="mt-4 border-t pt-2"><a href="https://github.com/keshavsoft/ks-web-components" class="hover:underline text-purple-600 font-semibold" target="_blank">ks-web-components Repo</a> - External custom elements library</li>
-                </ul>
-            </div>
-        </div>
     </div>
+
+</header>
+
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section class="bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
+
+    <div class="max-w-6xl mx-auto px-6 py-20">
+
+        <div class="max-w-3xl">
+
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
+                🚀 KeshavSoft JavaScript UI Library
+            </div>
+
+            <h1 class="text-4xl font-extrabold tracking-tight md:text-6xl">
+                jsTableBuilderViews
+            </h1>
+
+            <p class="mt-6 text-lg leading-8 text-slate-300 md:text-xl">
+                A JSON-driven JavaScript UI library for building
+                data tables, vertical forms, dynamic filtering,
+                and configurable views.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+
+                <a href="npm-usage.html"
+                   class="rounded-lg bg-blue-600 px-6 py-3 font-semibold hover:bg-blue-700">
+                    🚀 Get Started
+                </a>
+
+                <a href="configuration.html"
+                   class="rounded-lg border border-slate-600 px-6 py-3 font-semibold hover:bg-white/10">
+                    ⚙️ Configuration
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- QUICK UNDERSTANDING -->
+<!-- ========================================================= -->
+
+<section class="max-w-6xl mx-auto px-6 py-12">
+
+    <div class="mb-8">
+
+        <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">
+            Quick Understanding
+        </p>
+
+        <h2 class="mt-2 text-3xl font-bold text-slate-900">
+            What does this repository provide?
+        </h2>
+
+        <p class="mt-3 max-w-3xl text-slate-600">
+            jsTableBuilderViews converts configuration and application
+            data into reusable UI views. The documentation below explains
+            the repository from the basic concept to advanced configuration.
+        </p>
+
+    </div>
+
+
+    <div class="grid gap-5 md:grid-cols-3">
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+
+            <div class="text-3xl">📊</div>
+
+            <h3 class="mt-4 text-xl font-bold">
+                Data
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+                Provide your application data as JavaScript objects or arrays.
+            </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+
+            <div class="text-3xl">⚙️</div>
+
+            <h3 class="mt-4 text-xl font-bold">
+                Configuration
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+                Define columns, options, forms, filters, and views through configuration.
+            </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+
+            <div class="text-3xl">🖥️</div>
+
+            <h3 class="mt-4 text-xl font-bold">
+                Renderer
+            </h3>
+
+            <p class="mt-2 text-sm leading-6 text-slate-600">
+                TableBuilder uses the selected renderer to generate the UI.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- DOCUMENTATION GUIDES -->
+<!-- ========================================================= -->
+
+<section class="max-w-6xl mx-auto px-6 pb-16">
+
+    <div class="mb-8">
+
+        <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">
+            Documentation
+        </p>
+
+        <h2 class="mt-2 text-3xl font-bold text-slate-900">
+            Explore the Repository
+        </h2>
+
+        <p class="mt-3 text-slate-600">
+            Each guide focuses on one part of the library.
+            Start with the basics and continue to the detailed topics.
+        </p>
+
+    </div>
+
+
+    <div class="grid gap-6 md:grid-cols-2">
+
+
+        <!-- RELATIONSHIP -->
+
+        <a href="relationship.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    🧩
+                </div>
+
+                <span class="rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700">
+                    Architecture
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                Ecosystem Architecture & Relationship
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Understand how <strong>jsTableBuilderViews</strong>
+                works with <strong>ks-web-components</strong> and how
+                the different parts of the ecosystem are connected.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                Read Architecture Guide →
+            </div>
+
+        </a>
+
+
+        <!-- CONFIGURATION -->
+
+        <a href="configuration.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    ⚙️
+                </div>
+
+                <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                    Configuration
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                Configuration Schema
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Learn the structure of the configuration object,
+                column definitions, options, views, and the
+                built-in configuration helpers.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                Explore Configuration →
+            </div>
+
+        </a>
+
+
+        <!-- NPM -->
+
+        <a href="npm-usage.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    🚀
+                </div>
+
+                <span class="rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
+                    Getting Started
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                CLI Scaffolding & NPM Usage
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Learn how
+                <code class="rounded bg-slate-100 px-1.5 py-0.5">
+                    npx table-builder-views init
+                </code>
+                creates the starter project and HTML file.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                Learn NPX Usage →
+            </div>
+
+        </a>
+
+
+        <!-- TABLE FEATURES -->
+
+        <a href="table-features.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    📊
+                </div>
+
+                <span class="rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-700">
+                    Features
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                Table Features Guide
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Understand table-specific features such as serial
+                numbers, global search, column filtering, and
+                table configuration.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                Explore Table Features →
+            </div>
+
+        </a>
+
+
+        <!-- RENDERERS -->
+
+        <a href="renderers.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    🖥️
+                </div>
+
+                <span class="rounded-full bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-700">
+                    UI
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                Renderers Guide
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Learn how the library renders configuration as
+                different UI types such as tables, vertical forms,
+                and other supported views.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                Explore Renderers →
+            </div>
+
+        </a>
+
+
+        <!-- SIMPLE HTML -->
+
+        <a href="simple-example.html"
+           class="card block rounded-2xl border border-slate-200 bg-white p-7">
+
+            <div class="flex items-start justify-between">
+
+                <div class="text-3xl">
+                    🧪
+                </div>
+
+                <span class="rounded-full bg-pink-50 px-3 py-1 text-xs font-semibold text-pink-700">
+                    Example
+                </span>
+
+            </div>
+
+            <h3 class="mt-5 text-xl font-bold text-slate-900">
+                Simple HTML Example
+            </h3>
+
+            <p class="mt-3 text-sm leading-6 text-slate-600">
+                Start with a small HTML table example to understand
+                the basic relationship between HTML, data, columns,
+                and TableBuilder.
+            </p>
+
+            <div class="mt-5 font-semibold text-blue-600">
+                View Simple Example →
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- NPX HIGHLIGHT -->
+<!-- ========================================================= -->
+
+<section class="bg-slate-900 text-white">
+
+    <div class="max-w-6xl mx-auto px-6 py-16">
+
+        <div class="grid gap-10 md:grid-cols-2 md:items-center">
+
+            <div>
+
+                <div class="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-400">
+                    Quick Start
+                </div>
+
+                <h2 class="text-3xl font-bold">
+                    Create a starter project with NPX
+                </h2>
+
+                <p class="mt-4 leading-7 text-slate-300">
+                    You do not need to manually create the initial
+                    HTML and runtime structure. The CLI creates a
+                    ready-to-start project in your current project root.
+                </p>
+
+                <a href="npm-usage.html"
+                   class="mt-6 inline-block font-semibold text-blue-400 hover:text-blue-300">
+                    Learn how the scaffolding works →
+                </a>
+
+            </div>
+
+
+            <div class="rounded-2xl border border-slate-700 bg-slate-950 p-6">
+
+                <div class="mb-3 text-xs text-slate-500">
+                    Terminal
+                </div>
+
+                <code class="text-lg text-green-400">
+                    npx table-builder-views init
+                </code>
+
+                <div class="mt-5 border-t border-slate-800 pt-5 text-sm text-slate-400">
+
+                    Creates the starter HTML and required runtime
+                    files in your project root.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- LEARNING PATH -->
+<!-- ========================================================= -->
+
+<section class="max-w-6xl mx-auto px-6 py-16">
+
+    <div class="mb-8 text-center">
+
+        <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">
+            Recommended Path
+        </p>
+
+        <h2 class="mt-2 text-3xl font-bold text-slate-900">
+            Learn the Repository Step by Step
+        </h2>
+
+    </div>
+
+
+    <div class="grid gap-4 md:grid-cols-5">
+
+        <div class="rounded-xl border bg-white p-5 text-center">
+            <div class="text-2xl">01</div>
+            <h3 class="mt-2 font-bold">Simple HTML</h3>
+            <p class="mt-2 text-xs text-slate-500">
+                Understand the basic table.
+            </p>
+        </div>
+
+        <div class="rounded-xl border bg-white p-5 text-center">
+            <div class="text-2xl">02</div>
+            <h3 class="mt-2 font-bold">NPX</h3>
+            <p class="mt-2 text-xs text-slate-500">
+                Create the starter project.
+            </p>
+        </div>
+
+        <div class="rounded-xl border bg-white p-5 text-center">
+            <div class="text-2xl">03</div>
+            <h3 class="mt-2 font-bold">Configuration</h3>
+            <p class="mt-2 text-xs text-slate-500">
+                Understand the JSON structure.
+            </p>
+        </div>
+
+        <div class="rounded-xl border bg-white p-5 text-center">
+            <div class="text-2xl">04</div>
+            <h3 class="mt-2 font-bold">Features</h3>
+            <p class="mt-2 text-xs text-slate-500">
+                Learn table functionality.
+            </p>
+        </div>
+
+        <div class="rounded-xl border bg-white p-5 text-center">
+            <div class="text-2xl">05</div>
+            <h3 class="mt-2 font-bold">Renderers</h3>
+            <p class="mt-2 text-xs text-slate-500">
+                Build different UI views.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- OFFICIAL LINKS -->
+<!-- ========================================================= -->
+
+<section class="border-t bg-white">
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+
+        <div class="grid gap-8 md:grid-cols-3">
+
+
+            <div>
+
+                <h3 class="font-bold text-slate-900">
+                    🐙 Source Code
+                </h3>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    Browse the source code, README, issues, and development history.
+                </p>
+
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews"
+                   target="_blank"
+                   class="mt-3 inline-block font-semibold text-blue-600">
+                    Open GitHub →
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="font-bold text-slate-900">
+                    📦 NPM Package
+                </h3>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    View package information, installation details, and releases.
+                </p>
+
+                <a href="https://www.npmjs.com/package/table-builder-views"
+                   target="_blank"
+                   class="mt-3 inline-block font-semibold text-red-600">
+                    Open NPM →
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3 class="font-bold text-slate-900">
+                    🧩 Web Components
+                </h3>
+
+                <p class="mt-2 text-sm text-slate-500">
+                    Explore the custom HTML components used by the ecosystem.
+                </p>
+
+                <a href="https://github.com/keshavsoft/ks-web-components"
+                   target="_blank"
+                   class="mt-3 inline-block font-semibold text-purple-600">
+                    Open Repository →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer class="bg-slate-950 px-6 py-8 text-center text-sm text-slate-500">
+
+    <div class="font-semibold text-slate-300">
+        KeshavSoft jsTableBuilderViews
+    </div>
+
+    <p class="mt-2">
+        JSON-driven JavaScript UI generation for tables, forms, and dynamic views.
+    </p>
+
+    <div class="mt-4 flex justify-center gap-5">
+
+        <a href="https://keshavsoft.github.io/jsTableBuilderViews/"
+           target="_blank"
+           class="hover:text-white">
+            Documentation
+        </a>
+
+        <a href="https://github.com/keshavsoft/jsTableBuilderViews"
+           target="_blank"
+           class="hover:text-white">
+            GitHub
+        </a>
+
+        <a href="https://www.npmjs.com/package/table-builder-views"
+           target="_blank"
+           class="hover:text-white">
+            NPM
+        </a>
+
+    </div>
+
+</footer>
+
 </body>
 </html>

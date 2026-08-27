@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Guide - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <header class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="bg-purple-600 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider">Developer Guide</span>
+                <h1 class="text-lg font-bold text-white">DEV.md HTML View</h1>
+            </div>
+            <nav class="flex items-center gap-3 text-xs">
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/DEV.md" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                    🛠️ View Original Markdown (DEV.md)
+                </a>
+                <a href="index.html" class="px-3 py-1.5 rounded bg-purple-600 text-white font-bold">
+                    Docs Hub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto py-10 px-6">
+        <a href="index.html" class="text-purple-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">Developer & Internal Architecture Guide</h1>
+        <p class="text-lg text-gray-600 mb-8">Internal architecture details, engine design, data normalization, and state flow.</p>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900">Codebase Architecture</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-5 rounded-xl bg-purple-50 border border-purple-100">
+                    <h3 class="font-bold text-purple-900 mb-2">1. renderStart/core (Engine)</h3>
+                    <p class="text-xs text-purple-800 leading-relaxed">
+                        The brain of the system. <code class="font-mono">TableBuilder.js</code> normalizes input options, holds single source of truth for original and filtered data, tracks DOM nodes, and exposes CDN knowledge methods (<code class="font-mono">describe()</code> & <code class="font-mono">sampleConfig()</code>).
+                    </p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-blue-50 border border-blue-100">
+                    <h3 class="font-bold text-blue-900 mb-2">2. renderStart/renderers (UI)</h3>
+                    <p class="text-xs text-blue-800 leading-relaxed">
+                        Stateless UI rendering modules (<code class="font-mono">tableRenderer</code> and <code class="font-mono">verticalRenderer</code>) that convert column schemas into pure semantic HTML elements.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">Filtering State Flow</h2>
+            <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+                <li>User clicks <strong>Filter</strong> button inside a vertical form renderer.</li>
+                <li>Renderer invokes button callback, returning line data values to <code class="font-mono">TableBuilder</code>.</li>
+                <li><code class="font-mono">TableBuilder.filterData()</code> updates active data store.</li>
+                <li><code class="font-mono">RefreshManager.js</code> destroys <em>only</em> the old table DOM node and re-renders the new data grid, keeping vertical form state untouched!</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
