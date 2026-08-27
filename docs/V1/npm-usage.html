@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLI & Application Scaffolding - KeshavSoft TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto py-12 px-6">
+        <a href="index.html" class="text-blue-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
+        
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">CLI & Application Scaffolding</h1>
+        <p class="text-lg text-gray-600 mb-8">What <code>npx table-builder-views init</code> does inside your local application directory.</p>
+
+        <!-- What Our Application CLI Does -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900">What Our Application CLI Scaffolds</h2>
+            <p class="text-sm text-gray-600 leading-relaxed">
+                When you execute <code class="bg-gray-100 px-2 py-0.5 rounded font-mono text-blue-600 font-semibold">npx table-builder-views init</code>, the CLI automatically copies the complete runtime architecture and knowledge from both <strong>`jsTableBuilderViews`</strong> and <strong>`ks-web-components`</strong> directly into your local project root:
+            </p>
+
+            <div class="bg-slate-900 p-5 rounded-lg font-mono text-xs text-slate-200 border border-slate-800">
+<pre>Your Project Root/
+├── renderStart/                  <span class="text-slate-400"># TableBuilder Engine, Renderers & Data Flatteners</span>
+│   ├── core/                     <span class="text-slate-400"># TableBuilder Class, Describe & Sample Configs</span>
+│   ├── renderers/                <span class="text-slate-400"># Table, Vertical & Card View Renderers</span>
+│   └── dataFuncs/                <span class="text-slate-400"># Data Normalizers & Column Processors</span>
+├── webComponents/                <span class="text-slate-400"># Custom HTML Elements & Styling Tokens</span>
+│   └── v12/                      <span class="text-slate-400"># &lt;ks-table-cell-content-common&gt; & Tailwind Token Maps</span>
+├── renderStart.js                <span class="text-slate-400"># Main ES Module Entry Point</span>
+└── index.html                    <span class="text-slate-400"># Pre-configured Starter HTML Template</span></pre>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                <div class="p-4 rounded-lg bg-blue-50 border border-blue-100">
+                    <h3 class="font-bold text-blue-900 text-sm mb-1">1. jsTableBuilderViews Engine</h3>
+                    <p class="text-xs text-blue-700">
+                        Copies the complete <code class="font-mono">renderStart/</code> engine responsible for managing state, sorting, dynamic data filtering, and view orchestration.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-purple-50 border border-purple-100">
+                    <h3 class="font-bold text-purple-900 text-sm mb-1">2. ks-web-components UI Elements</h3>
+                    <p class="text-xs text-purple-700">
+                        Copies the <code class="font-mono">webComponents/</code> directory containing custom element definitions and Tailwind CSS design tokens (`PREDEFINED_TEXT_CLASSES`).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available CLI Commands -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-4">
+            <h2 class="text-2xl font-bold text-gray-900">CLI Command Reference</h2>
+            
+            <div class="space-y-4 text-sm">
+                <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                    <code class="font-bold text-blue-600 font-mono text-base block mb-1">npx table-builder-views init</code>
+                    <p class="text-gray-600 text-xs">
+                        Scaffolds the complete application runtime source files (`renderStart/`, `webComponents/`, `renderStart.js`, and `index.html`) into the current working directory.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-lg bg-gray-50 border border-gray-200">
+                    <code class="font-bold text-gray-800 font-mono text-base block mb-1">npx table-builder-views help</code>
+                    <p class="text-gray-600 text-xs">
+                        Displays command usage, options, and version information.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- External Learning References for NPX -->
+        <div class="bg-slate-100 p-6 rounded-xl border border-slate-200 space-y-3">
+            <h3 class="font-bold text-gray-900 text-sm">General Node.js & NPX Learning Resources</h3>
+            <p class="text-xs text-gray-600">
+                If you are new to NPX or Node.js package execution, check out these official external guides and video tutorials:
+            </p>
+            <ul class="list-disc pl-5 text-xs text-blue-600 space-y-1">
+                <li><a href="https://docs.npmjs.com/cli/v10/commands/npx" target="_blank" class="hover:underline">Official npm docs: Executing npm packages with npx</a></li>
+                <li><a href="https://www.youtube.com/results?search_query=npx+tutorial+for+beginners" target="_blank" class="hover:underline">YouTube Tutorial Search: What is NPX and how does it work?</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

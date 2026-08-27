@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>README - KeshavSoft TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <header class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="bg-blue-600 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider">HTML Doc</span>
+                <h1 class="text-lg font-bold text-white">README.md View</h1>
+            </div>
+            <nav class="flex items-center gap-3 text-xs">
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/README.md" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                    📄 View Original Markdown (README.md)
+                </a>
+                <a href="index.html" class="px-3 py-1.5 rounded bg-blue-600 text-white font-bold">
+                    Documentation Hub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto py-10 px-6">
+        <a href="index.html" class="text-blue-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">KeshavSoft jsTableBuilderViews</h1>
+        <p class="text-lg text-gray-600 mb-6">A lightweight, declarative Javascript UI library for generating complex data tables, vertical forms, and dynamic data filtering using a JSON-driven configuration approach.</p>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900">Key Features</h2>
+            <ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+                <li><strong>Declarative Configuration</strong>: Define your UI using a simple JSON structure.</li>
+                <li><strong>Multiple Renderers</strong>: Render data as interactive data grids (`table`) or input forms (`vertical`).</li>
+                <li><strong>Dynamic Filtering</strong>: Built-in state management for dynamically filtering tables without destroying DOM nodes.</li>
+                <li><strong>Web Components Integration</strong>: Easily embed custom form inputs inside table cells using `<ks-table-cell-content-common>`.</li>
+                <li><strong>CDN Knowledge Discovery</strong>: Call `TableBuilder.sampleConfig()` to pull valid sample configurations directly from CDN.</li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">CLI Scaffolding Command</h2>
+            <pre class="bg-slate-900 text-white p-4 rounded-lg text-sm font-mono mb-4">npx table-builder-views init</pre>
+            <p class="text-xs text-gray-600">Scaffolds `./renderStart/` (engine) and `./webComponents/` (UI elements & Tailwind tokens) into your local project root.</p>
+        </div>
+    </div>
+</body>
+</html>

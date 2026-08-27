@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How-To Tutorials - TableBuilder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    <header class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="bg-emerald-600 px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider">How-To Guide</span>
+                <h1 class="text-lg font-bold text-white">HOWTO.md HTML View</h1>
+            </div>
+            <nav class="flex items-center gap-3 text-xs">
+                <a href="https://github.com/keshavsoft/jsTableBuilderViews/blob/main/HOWTO.md" target="_blank" class="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+                    💡 View Original Markdown (HOWTO.md)
+                </a>
+                <a href="index.html" class="px-3 py-1.5 rounded bg-emerald-600 text-white font-bold">
+                    Docs Hub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto py-10 px-6">
+        <a href="index.html" class="text-emerald-600 font-semibold hover:underline mb-4 inline-block">&larr; Back to Documentation Hub</a>
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">How-To Tutorials & Practical Recipes</h1>
+        <p class="text-lg text-gray-600 mb-8">Step-by-step developer guides for common integration tasks.</p>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900">1. Adding Columns</h2>
+            <p class="text-sm text-gray-600">Add a column definition to the <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">columns</code> array in your JSON config:</p>
+            <pre class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs font-mono">{ "dataKey": "order.total", "header": "Total Amount", "options": { "width": "120px" } }</pre>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8 space-y-6">
+            <h2 class="text-2xl font-bold text-gray-900">2. Pulling Sample Config from CDN</h2>
+            <pre class="bg-slate-900 text-slate-200 p-4 rounded-lg text-xs font-mono">import { TableBuilder } from "https://keshavsoft.github.io/jsTableBuilderViews/renderStart.js";
+const config = TableBuilder.sampleConfig();
+config.data = myData;
+const builder = new TableBuilder(config);
+await builder.build();</pre>
+        </div>
+    </div>
+</body>
+</html>
